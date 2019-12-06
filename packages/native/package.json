@@ -1,0 +1,21 @@
+{
+  "name": "@hova-labs/bento-box-native",
+  "description": "Bento Box native design system",
+  "author": "Kaitlyn Hova & Matt Hova",
+  "license": "MIT",
+  "main": "lib/native.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.1.0"
+}

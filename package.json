@@ -45,7 +45,13 @@
     "typescript": "^3.7.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "prepublish": "rm -rf dist && npm run build",
+    "storybook": "start-storybook -p 9009",
+    "build-storybook": "build-storybook",
+    "build": "npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel lib --out-dir dist --extensions \".ts,.tsx\" --source-maps inline"
   },
   "repository": {
     "type": "git",

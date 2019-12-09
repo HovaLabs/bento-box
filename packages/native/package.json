@@ -56,6 +56,10 @@
     "react-docgen-typescript-loader": "^3.6.0",
     "react-test-renderer": "^16.8.3"
   },
+  "peerDependencies": {
+    "react": "^16.8.1",
+    "react-native": ">=0.59.0-rc.0 <1.0.x"
+  },
   "publishConfig": {
     "access": "public"
   },

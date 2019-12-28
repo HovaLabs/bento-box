@@ -47,6 +47,7 @@ export type Typography = {
   buttonTertiary: TypographyValue;
 };
 
+
 export const typographyDefault: Typography = {
   headingLarge: {
     color: "primary",

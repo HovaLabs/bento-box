@@ -1,7 +1,7 @@
 import { Breakpoints, breakpointsDefault } from "./breakpoints";
 import { Colors, colorsLightTheme, colorsDarkTheme } from "./colors";
 import { Radii, radiiDefault } from "./radii";
-import { Space, spaceDefault } from "./space";
+import { Spacings, spacingsDefault } from "./spacings";
 import { Typography, typographyDefault } from "./typography";
 
 export type Theme = {
@@ -9,7 +9,7 @@ export type Theme = {
   breakpoints: Breakpoints;
   colors: Colors;
   radii: Radii;
-  space: Space;
+  spacings: Spacings;
   typography: Typography;
 };
 
@@ -18,7 +18,7 @@ export const lightTheme: Theme = {
   breakpoints: breakpointsDefault,
   colors: colorsLightTheme,
   radii: radiiDefault,
-  space: spaceDefault,
+  spacings: spacingsDefault,
   typography: typographyDefault
 };
 
@@ -27,7 +27,7 @@ export const darkTheme: Theme = {
   breakpoints: breakpointsDefault,
   colors: colorsDarkTheme,
   radii: radiiDefault,
-  space: spaceDefault,
+  spacings: spacingsDefault,
   typography: typographyDefault
 };
 

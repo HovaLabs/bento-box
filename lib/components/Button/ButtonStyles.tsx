@@ -7,5 +7,5 @@ export const Button = createStyledComponent(ButtonRN)(c => ({
   border: 0,
   borderRadius: c.theme.radii.l,
   backgroundColor: c.theme.colors.accentPrimary,
-  padding: c.theme.space.l,
+  padding: c.theme.spacings.l,
 }));

@@ -1,4 +1,4 @@
-export type Space = {
+export type Spacings = {
   none: number;
   s: number;
   m: number;
@@ -8,7 +8,7 @@ export type Space = {
   xxxl: number;
 };
 
-export const spaceDefault: Space = {
+export const spacingsDefault: Spacings = {
   none: 0,
   s: 4,
   m: 8,

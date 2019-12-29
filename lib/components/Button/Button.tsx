@@ -1,4 +1,5 @@
 import React from "react";
+import { Text } from '../Text';
 
 import * as S from "./ButtonStyles";
 
@@ -53,5 +54,9 @@ export const Button = ({
   title,
   type
 }: ButtonProps) => {
-  return <S.Button title={title}>{children}</S.Button>;
+  return (
+    <S.Button>
+      <Text typography="buttonPrimary">{title}</Text>
+    </S.Button>
+  )
 };

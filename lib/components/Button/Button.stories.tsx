@@ -6,7 +6,11 @@ export default {
   title: "My Button"
 };
 
-export const text = () => <Button onPress={() => { console.log('yo') }}>Hello Button</Button>;
+export const text = () => (
+  <ThemeContextContainer>
+    <Button onPress={() => { console.log('yo') }} title="Hello Button"></Button>
+  </ThemeContextContainer>
+);
 
 export const emoji = () => (
   <ThemeContextContainer>

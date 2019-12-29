@@ -1,5 +1,5 @@
 import { Colors } from "./colors";
-
+import { StyleObject } from '../helpers/createStyledComponent';
 const fontWeight = {
   thin: "100",
   extraLight: "200",

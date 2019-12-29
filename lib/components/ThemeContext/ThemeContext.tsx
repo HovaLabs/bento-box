@@ -3,6 +3,8 @@ import { themes } from "../../theme";
 import { ThemeKey, ThemeContextValue, ThemeContextContainerProps } from './ThemeContextTypes';
 import { getPersistentTheme } from './persistentTheme';
 
+// need to support passing in a theme directly from props instead of locally
+
 export const initialTheme: ThemeKey = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? 'darkTheme' : 'lightTheme';
 
 export const themeContextInitialValue: ThemeContextValue = {
@@ -18,45 +20,35 @@ export const ThemeContextContainer = ({
   children
 }: ThemeContextContainerProps): React.ReactElement => {
   const [theme, setThemeState] = React.useState(themes[initialTheme]);
+  const themeRef = React.useRef(theme);
 
   React.useEffect(() => {
-    const setDarkTheme = async () => {
+    themeRef.current = theme; // Write it to the ref
+  });
+
+  React.useEffect(() => {
+    const themeChangeListener = async () => {
       const themeKey = await getPersistentTheme();
-      if (themeKey === "darkTheme" && theme.name !== "darkTheme") {
-        setThemeState(themes[themeKey]);
+
+      if (!themeKey) {
+        if (themeRef.current.name === 'darkTheme') {
+          setThemeState(themes.lightTheme);
+        } else if (themeRef.current.name === 'lightTheme') {
+          setThemeState(themes.darkTheme);
+        }
       }
     }
 
-    const setLightTheme = async () => {
-      const themeKey = await getPersistentTheme();
-      if (themeKey === "lightTheme" && theme.name !== "lightTheme") {
-        setThemeState(themes[themeKey]);
-      }
-    }
-    window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").addListener(setDarkTheme);
-    window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").addListener(setLightTheme);
+    window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").addListener(themeChangeListener);
     return (() => {
-      window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").removeListener(setDarkTheme);
-      window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").removeListener(setLightTheme);
+      window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").removeListener(themeChangeListener);
     })
   }, []);
 
   const setTheme = (themeKey: ThemeKey) => setThemeState(themes[themeKey]);
 
-  const [themeContextValue, setThemeContextValue] = React.useState({
-    theme,
-    setTheme
-  });
-
-  React.useEffect(() => {
-    setThemeContextValue({
-      theme,
-      setTheme
-    });
-  }, [theme]);
-
   return (
-    <ThemeContext.Provider value={themeContextValue}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );

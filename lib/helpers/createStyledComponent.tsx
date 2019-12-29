@@ -2,29 +2,16 @@
 import React from "react";
 import { Theme } from "../theme";
 import { ThemeContext } from "../components/ThemeContext";
-
-type Contexts = {
-  theme: Theme;
-  //   Dimensions: DimensionsContextType;
-};
-
-type Props = {
-  [key: string]: any;
-};
-
-type StyleObjectFunction = (contexts: Contexts, props: Props) => StyleObject;
-type PropsStylesObjectFunction = (
-  context: Contexts,
-  props: Props
-) => PropsStylesObject;
-type StyleFunction = (contexts: Contexts, props: Props) => StyleValue;
-type StyleValue = string | number | StyleFunction;
-type StyleObject = {
-  [key: string]: StyleValue;
-};
-type PropsStylesObject = {
-  [key: string]: StyleObject;
-};
+import {
+  Contexts,
+  Props,
+  StyleObjectFunction,
+  PropsStylesObjectFunction,
+  StyleFunction,
+  StyleValue,
+  StyleObject,
+  PropsStylesObject,
+} from '../types';
 
 // For a given style key/value
 // If the value is a function - call the function with props as an arg
@@ -38,6 +25,9 @@ const resolveStyle = (
 ): StyleValue => {
   if (typeof styleValue === "number" || typeof styleValue === "string") {
     return styleValue;
+  } else if (typeof styleValue === 'object') {
+    const newStyleValue = Object.values(styleValue)[0] as StyleValue;
+    return resolveStyle(newStyleValue, contexts, props);
   }
   return resolveStyle(styleValue(contexts, props), contexts, props);
 };
@@ -101,3 +91,7 @@ export const createStyledComponent = (ComponentInput: any) => (
       );
     }
   );
+
+export {
+  StyleObject
+};

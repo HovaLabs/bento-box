@@ -1,15 +1,22 @@
 import React from "react";
-import { themes } from "../../theme";
-import { ThemeKey, ThemeContextValue, ThemeContextContainerProps } from './ThemeContextTypes';
-import { getPersistentTheme } from './persistentTheme';
+import { themes as defaultThemes } from "../../theme";
+import {
+  ThemeKey,
+  ThemeContextValue,
+  ThemeContextContainerProps
+} from "./ThemeContextTypes";
+import { getPersistentTheme } from "./persistentTheme";
 
 // need to support passing in a theme directly from props instead of locally
 
-export const initialTheme: ThemeKey = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? 'darkTheme' : 'lightTheme';
+export const initialTheme: ThemeKey =
+  window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "darkTheme"
+    : "lightTheme";
 
 export const themeContextInitialValue: ThemeContextValue = {
-  theme: themes[initialTheme],
-  setTheme: () => { }
+  theme: defaultThemes[initialTheme],
+  setTheme: () => {}
 };
 
 export const ThemeContext = React.createContext<ThemeContextValue>(
@@ -17,7 +24,8 @@ export const ThemeContext = React.createContext<ThemeContextValue>(
 );
 
 export const ThemeContextContainer = ({
-  children
+  children,
+  themes
 }: ThemeContextContainerProps): React.ReactElement => {
   const [theme, setThemeState] = React.useState(themes[initialTheme]);
   const themeRef = React.useRef(theme);
@@ -31,18 +39,27 @@ export const ThemeContextContainer = ({
       const themeKey = await getPersistentTheme();
 
       if (!themeKey) {
-        if (themeRef.current.name === 'darkTheme') {
+        if (themeRef.current.name === "darkTheme") {
           setThemeState(themes.lightTheme);
-        } else if (themeRef.current.name === 'lightTheme') {
+        } else if (themeRef.current.name === "lightTheme") {
           setThemeState(themes.darkTheme);
         }
       }
+    };
+
+    if (window.matchMedia) {
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addListener(themeChangeListener);
     }
 
-    window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").addListener(themeChangeListener);
-    return (() => {
-      window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").removeListener(themeChangeListener);
-    })
+    return () => {
+      if (window.matchMedia) {
+        window
+          .matchMedia("(prefers-color-scheme: dark)")
+          .removeListener(themeChangeListener);
+      }
+    };
   }, []);
 
   const setTheme = (themeKey: ThemeKey) => setThemeState(themes[themeKey]);
@@ -52,4 +69,7 @@ export const ThemeContextContainer = ({
       {children}
     </ThemeContext.Provider>
   );
+};
+ThemeContextContainer.defaultProps = {
+  themes: defaultThemes
 };

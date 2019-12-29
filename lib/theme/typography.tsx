@@ -1,5 +1,5 @@
-import { Colors } from "./colors";
-import { StyleObject } from '../helpers/createStyledComponent';
+import { Colors } from "../types";
+
 const fontWeight = {
   thin: "100",
   extraLight: "200",
@@ -46,7 +46,6 @@ export type Typography = {
   buttonSecondary: TypographyValue;
   buttonTertiary: TypographyValue;
 };
-
 
 export const typographyDefault: Typography = {
   headingLarge: {

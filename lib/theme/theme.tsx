@@ -1,5 +1,6 @@
+import { Colors } from "../types";
 import { Breakpoints, breakpointsDefault } from "./breakpoints";
-import { Colors, colorsLightTheme, colorsDarkTheme } from "./colors";
+import { colorsLightTheme, colorsDarkTheme } from "./colors";
 import { Radii, radiiDefault } from "./radii";
 import { Spacings, spacingsDefault } from "./spacings";
 import { Typography, typographyDefault } from "./typography";

@@ -1,5 +1,5 @@
 import React from "react";
-import { Text } from '../Text';
+import { Text } from "../Text";
 
 import * as S from "./ButtonStyles";
 
@@ -45,18 +45,16 @@ interface ButtonProps {
 }
 
 export const Button = ({
-  children,
-  disabled,
-  href,
-  variant,
-  onClick,
-  size,
-  title,
-  type
-}: ButtonProps) => {
-  return (
-    <S.Button>
-      <Text typography="buttonPrimary">{title}</Text>
-    </S.Button>
-  )
-};
+  // children,
+  // disabled,
+  // href,
+  // variant,
+  // onClick,
+  // size,
+  title
+}: // type,
+ButtonProps) => (
+  <S.Button>
+    <Text typography="buttonPrimary">{title}</Text>
+  </S.Button>
+);

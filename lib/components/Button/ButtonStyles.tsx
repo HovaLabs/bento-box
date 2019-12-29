@@ -6,5 +6,5 @@ export const Button = createStyledComponent(TouchableOpacity)(c => ({
   borderWidth: 0,
   borderRadius: c.theme.radii.l,
   backgroundColor: c.theme.colors.accentPrimary,
-  padding: c.theme.spacings.l,
+  padding: c.theme.spacings.l
 }));

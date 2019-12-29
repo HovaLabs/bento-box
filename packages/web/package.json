@@ -7,6 +7,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "prepublish": "rm -rf dist && npm run build",
+    "typecheck": "tsc --noEmit",
     "build": "npm run build:types && npm run build:js",
     "build:types": "tsc --emitDeclarationOnly --outDir ./dist",
     "build:js": "babel ../../lib --config-file ./.babelrc --out-dir dist --extensions \".ts,.tsx\" --source-maps inline"

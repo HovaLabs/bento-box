@@ -1,17 +1,16 @@
 // @flow
 import React from "react";
-import { Theme } from "../theme";
+
 import { ThemeContext } from "../components/ThemeContext";
 import {
   Contexts,
   Props,
   StyleObjectFunction,
   PropsStylesObjectFunction,
-  StyleFunction,
   StyleValue,
   StyleObject,
-  PropsStylesObject,
-} from '../types';
+  PropsStylesObject
+} from "../types";
 
 // For a given style key/value
 // If the value is a function - call the function with props as an arg
@@ -25,7 +24,8 @@ const resolveStyle = (
 ): StyleValue => {
   if (typeof styleValue === "number" || typeof styleValue === "string") {
     return styleValue;
-  } else if (typeof styleValue === 'object') {
+  }
+  if (typeof styleValue === "object") {
     const newStyleValue = Object.values(styleValue)[0] as StyleValue;
     return resolveStyle(newStyleValue, contexts, props);
   }
@@ -92,6 +92,4 @@ export const createStyledComponent = (ComponentInput: any) => (
     }
   );
 
-export {
-  StyleObject
-};
+export { StyleObject };

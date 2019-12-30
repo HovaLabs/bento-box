@@ -1,14 +1,6 @@
 import React from "react";
 import * as S from "./TextStyles";
-import { Typography } from "../../types";
-
-export interface TextProps {
-  /**
-   * The text to be rendered
-   */
-  children?: string;
-  typography?: keyof Typography;
-}
+import { TextProps, Typography } from "../../types";
 
 export const Text = ({ children, typography }: TextProps) => (
   <S.Text typography={typography}>{children}</S.Text>

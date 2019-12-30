@@ -3,8 +3,11 @@ import { eventEmitter } from "react-native-dark-mode";
 
 import { themes } from "../../theme";
 import { isInitiallyDarkMode } from "./initialTheme";
-import { ThemeContextContainerProps } from "./ThemeContextTypes";
-import { ThemeKey, ThemeContextValue } from "../../types";
+import {
+  ThemeKey,
+  ThemeContextValue,
+  ThemeContextContainerProps
+} from "../../types";
 import { getPersistentTheme } from "./persistentTheme";
 
 export const themeContextInitialValue: ThemeContextValue = {

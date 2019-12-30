@@ -58,7 +58,7 @@
     "test": "jest",
     "storybook": "start-storybook -p 9009",
     "build-storybook": "build-storybook",
-    "publish": "lerna run build && lerna publish"
+    "publish": "yarn typecheck && yarn lint && lerna run build && lerna publish"
   },
   "repository": {
     "type": "git",

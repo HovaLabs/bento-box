@@ -1,7 +1,6 @@
 import { Text as TextRN } from "react-native";
 import { createStyledComponent } from "../../helpers";
-import { Typography } from "../../theme";
-import { StyleObject } from "../../types";
+import { StyleObject, Typography } from "../../types";
 
 interface TextStylesProps {
   typography: keyof Typography;

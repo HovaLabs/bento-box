@@ -53,6 +53,7 @@
     "typescript": "^3.7.3"
   },
   "scripts": {
+    "typecheck": "tsc --noEmit",
     "lint": "eslint ./lib/**/*.*",
     "test": "jest",
     "storybook": "start-storybook -p 9009",

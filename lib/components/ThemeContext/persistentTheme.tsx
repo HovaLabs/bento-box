@@ -1,6 +1,6 @@
 import { AsyncStorage } from "react-native";
 import { isInitiallyDarkMode } from "./initialTheme";
-import { ThemeKey } from "./ThemeContextTypes";
+import { ThemeKey } from "../../types";
 
 const THEME_STORAGE_KEY = "hova_labs_theme";
 const themes = ["lightTheme", "darkTheme"];

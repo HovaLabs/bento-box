@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "./TextStyles";
-import { Typography } from "../../theme/typography";
+import { Typography } from "../../types";
 
 export interface TextProps {
   /**

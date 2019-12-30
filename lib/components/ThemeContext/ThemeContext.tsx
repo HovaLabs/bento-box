@@ -1,10 +1,7 @@
 import React from "react";
 import { themes as defaultThemes } from "../../theme";
-import {
-  ThemeKey,
-  ThemeContextValue,
-  ThemeContextContainerProps
-} from "./ThemeContextTypes";
+import { ThemeContextContainerProps } from "./ThemeContextTypes";
+import { ThemeKey, ThemeContextValue } from "../../types";
 import { getPersistentTheme } from "./persistentTheme";
 
 // need to support passing in a theme directly from props instead of locally

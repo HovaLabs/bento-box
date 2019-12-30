@@ -1,18 +1,9 @@
-import { Colors } from "../types";
-import { Breakpoints, breakpointsDefault } from "./breakpoints";
+import { Theme } from "../types";
+import { breakpointsDefault } from "./breakpoints";
 import { colorsLightTheme, colorsDarkTheme } from "./colors";
-import { Radii, radiiDefault } from "./radii";
-import { Spacings, spacingsDefault } from "./spacings";
-import { Typography, typographyDefault } from "./typography";
-
-export type Theme = {
-  name: "lightTheme" | "darkTheme";
-  breakpoints: Breakpoints;
-  colors: Colors;
-  radii: Radii;
-  spacings: Spacings;
-  typography: Typography;
-};
+import { radiiDefault } from "./radii";
+import { spacingsDefault } from "./spacings";
+import { typographyDefault } from "./typography";
 
 export const lightTheme: Theme = {
   name: "lightTheme",

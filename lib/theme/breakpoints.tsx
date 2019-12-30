@@ -1,9 +1,4 @@
-export type Breakpoints = {
-  s?: number;
-  m?: number;
-  l?: number;
-  xl?: number;
-};
+import { Breakpoints } from "../types";
 
 export const breakpointsDefault: Breakpoints = {
   s: 0,

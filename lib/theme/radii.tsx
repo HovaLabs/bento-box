@@ -1,12 +1,4 @@
-export type Radii = {
-  none: 0;
-  s: number;
-  m: number;
-  l: number;
-  xl: number;
-  xxl: number;
-  round: number;
-};
+import { Radii } from "../types";
 
 export const radiiDefault: Radii = {
   none: 0,

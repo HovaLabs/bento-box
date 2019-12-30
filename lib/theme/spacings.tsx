@@ -1,12 +1,4 @@
-export type Spacings = {
-  none: number;
-  s: number;
-  m: number;
-  l: number;
-  xl: number;
-  xxl: number;
-  xxxl: number;
-};
+import { Spacings } from "../types";
 
 export const spacingsDefault: Spacings = {
   none: 0,

@@ -1,6 +1,6 @@
-import { Colors } from "../types";
+import { Typography } from "../types";
 
-const fontWeight = {
+export const fontWeight = {
   thin: "100",
   extraLight: "200",
   light: "300",
@@ -12,39 +12,12 @@ const fontWeight = {
   heavy: "900"
 };
 
-const letterSpacingDenominator = {
+export const letterSpacingDenominator = {
   s: 32,
   m: 16,
   l: 8,
   xl: 4,
   none: 1
-};
-
-type ResponsiveValue = {
-  s?: number;
-  m?: number;
-  l?: number;
-  xl?: number;
-};
-
-type themeValue = number | string | ResponsiveValue;
-
-export type TypographyValue = {
-  color: keyof Colors;
-  fontWeight: keyof typeof fontWeight;
-  lineHeight: themeValue;
-  fontSize: themeValue;
-  letterSpacing?: number | keyof typeof letterSpacingDenominator;
-};
-
-export type Typography = {
-  headingLarge: TypographyValue;
-  headingMedium: TypographyValue;
-  headingSmall: TypographyValue;
-  bodyText: TypographyValue;
-  buttonPrimary: TypographyValue;
-  buttonSecondary: TypographyValue;
-  buttonTertiary: TypographyValue;
 };
 
 export const typographyDefault: Typography = {

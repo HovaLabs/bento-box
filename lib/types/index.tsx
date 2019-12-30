@@ -1,5 +1,4 @@
-import { Theme } from "../theme";
-
+// START CreateStyledComponents types
 export type Contexts = {
   theme: Theme;
   //   Dimensions: DimensionsContextType;
@@ -17,13 +16,28 @@ export type PropsStylesObjectFunction = (
   context: Contexts,
   props: Props
 ) => PropsStylesObject;
+export type BreakpointStyleValue = {
+  s?: string | number | StyleFunction;
+  m?: string | number | StyleFunction;
+  l?: string | number | StyleFunction;
+  xl?: string | number | StyleFunction;
+};
 export type StyleFunction = (contexts: Contexts, props: Props) => StyleValue;
-export type StyleValue = string | number | StyleFunction;
+export type StyleValue = string | number | StyleFunction | BreakpointStyleValue;
 export type StyleObject = {
   [key: string]: StyleValue;
 };
 export type PropsStylesObject = {
   [key: string]: StyleObject;
+};
+// END CreateStyledComponents types
+
+// START Theme typings
+export type Breakpoints = {
+  s?: number;
+  m?: number;
+  l?: number;
+  xl?: number;
 };
 
 export type Colors = {
@@ -37,3 +51,95 @@ export type Colors = {
   accentSecondary: string;
   accentTertiary: string;
 };
+
+export type Radii = {
+  none: 0;
+  s: number;
+  m: number;
+  l: number;
+  xl: number;
+  xxl: number;
+  round: number;
+};
+
+export type Spacings = {
+  none: number;
+  s: number;
+  m: number;
+  l: number;
+  xl: number;
+  xxl: number;
+  xxxl: number;
+};
+
+export type FontWeight =
+  | "thin"
+  | "extraLight"
+  | "light"
+  | "normal"
+  | "medium"
+  | "semiBold"
+  | "bold"
+  | "extraBold"
+  | "heavy"
+  | number;
+
+type LetterSpacing = "s" | "m" | "l" | "xl" | "none" | number;
+
+export type BreakpointColor = {
+  s?: keyof Colors;
+  m?: keyof Colors;
+  l?: keyof Colors;
+  xl?: keyof Colors;
+};
+
+export type BreakpointFontWeight = {
+  s?: FontWeight;
+  m?: FontWeight;
+  l?: FontWeight;
+  xl?: FontWeight;
+};
+
+export type BreakpointLetterSpacing = {
+  s?: LetterSpacing;
+  m?: LetterSpacing;
+  l?: LetterSpacing;
+  xl?: LetterSpacing;
+};
+
+export type TypographyValue = {
+  color: BreakpointColor | keyof Colors;
+  fontSize: StyleValue;
+  fontWeight: BreakpointFontWeight | FontWeight;
+  letterSpacing?: BreakpointLetterSpacing | LetterSpacing;
+  lineHeight: StyleValue;
+};
+
+export type Typography = {
+  headingLarge: TypographyValue;
+  headingMedium: TypographyValue;
+  headingSmall: TypographyValue;
+  bodyText: TypographyValue;
+  buttonPrimary: TypographyValue;
+  buttonSecondary: TypographyValue;
+  buttonTertiary: TypographyValue;
+};
+
+export type Theme = {
+  name: "lightTheme" | "darkTheme";
+  breakpoints: Breakpoints;
+  colors: Colors;
+  radii: Radii;
+  spacings: Spacings;
+  typography: Typography;
+};
+
+export type ThemeContextValue = {
+  theme: Theme;
+  setTheme: (input: ThemeKey) => void;
+};
+export type Themes = {
+  lightTheme: Theme;
+  darkTheme: Theme;
+};
+export type ThemeKey = keyof Themes;

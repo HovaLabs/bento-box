@@ -1,7 +1,7 @@
 // START CreateStyledComponents types
 export type Contexts = {
   theme: Theme;
-  //   Dimensions: DimensionsContextType;
+  dimensions: DimensionsContextValue;
 };
 
 export type Props = {
@@ -197,3 +197,13 @@ export interface ThemeContextContainerProps {
   children: React.ReactNode;
   themes: Themes;
 }
+
+export interface DimensionsContextProps {
+  children: any;
+}
+
+export type DimensionsContextValue = {
+  width: number;
+  height: number;
+  breakpoint: keyof Breakpoints;
+};

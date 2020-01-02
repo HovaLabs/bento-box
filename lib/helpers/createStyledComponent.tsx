@@ -2,6 +2,7 @@
 import React from "react";
 
 import { ThemeContext } from "../components/ThemeContext";
+import { DimensionsContext } from "../components/DimensionsContext";
 import {
   Contexts,
   Props,
@@ -9,7 +10,9 @@ import {
   PropsStylesObjectFunction,
   StyleValue,
   StyleObject,
-  PropsStylesObject
+  PropsStylesObject,
+  Breakpoints,
+  BreakpointStyleValue
 } from "../types";
 
 // For a given style key/value
@@ -26,8 +29,25 @@ const resolveStyle = (
     return styleValue;
   }
   if (typeof styleValue === "object") {
-    const newStyleValue = Object.values(styleValue)[0] as StyleValue;
-    return resolveStyle(newStyleValue, contexts, props);
+    console.log("wtf", contexts.dimensions.width);
+    for (
+      let i = Object.keys(contexts.theme.breakpoints).indexOf(
+        contexts.dimensions.breakpoint
+      );
+      i >= 0;
+      i -= 1
+    ) {
+      const breakpoint = Object.keys(contexts.theme.breakpoints)[
+        i
+      ] as keyof Breakpoints;
+      const responsiveStyleValue = styleValue[
+        breakpoint
+      ] as BreakpointStyleValue;
+      if (responsiveStyleValue !== undefined) {
+        return resolveStyle(responsiveStyleValue, contexts, props);
+      }
+    }
+    return 0; // Hack: Need better edge case story with breakpoints
   }
   return resolveStyle(styleValue(contexts, props), contexts, props);
 };
@@ -53,9 +73,11 @@ export const createStyledComponent = (ComponentInput: any) => (
   React.memo<any>(
     (props: Props = {}): React.ReactElement => {
       const { theme } = React.useContext(ThemeContext);
+      const dimensions = React.useContext(DimensionsContext);
+
       const contexts: Contexts = {
-        theme
-        // Dimensions: React.useContext(DimensionsContext)
+        theme,
+        dimensions
       };
 
       // If either arg is a function, resolve it to an object

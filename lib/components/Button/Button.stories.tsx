@@ -1,25 +1,25 @@
 import React from "react";
 
 import { Button } from ".";
-import { ThemeContextContainer } from "..";
+import { DesignSystemProvider } from "..";
 
 export default {
   title: "My Button"
 };
 
 export const text = () => (
-  <ThemeContextContainer>
+  <DesignSystemProvider>
     <Button
       onPress={() => {
         console.log("yo");
       }}
       title="Hello Button"
     />
-  </ThemeContextContainer>
+  </DesignSystemProvider>
 );
 
 export const emoji = () => (
-  <ThemeContextContainer>
+  <DesignSystemProvider>
     <Button
       onPress={() => {
         console.log("yo");
@@ -28,5 +28,5 @@ export const emoji = () => (
       size="m"
       title="😀 😎 👍 💯"
     />
-  </ThemeContextContainer>
+  </DesignSystemProvider>
 );

@@ -29,7 +29,6 @@ const resolveStyle = (
     return styleValue;
   }
   if (typeof styleValue === "object") {
-    console.log("wtf", contexts.dimensions.width);
     for (
       let i = Object.keys(contexts.theme.breakpoints).indexOf(
         contexts.dimensions.breakpoint

@@ -1,6 +1,6 @@
-import { Typography } from "../types";
+import { FontWeights, Typography } from "../types";
 
-export const fontWeight = {
+export const fontWeights: FontWeights = {
   thin: "100",
   extraLight: "200",
   light: "300",
@@ -23,7 +23,7 @@ export const letterSpacingDenominator = {
 export const typographyDefault: Typography = {
   headingLarge: {
     color: "primary",
-    fontWeight: "bold",
+    fontWeight: fontWeights.bold,
     lineHeight: {
       s: 52,
       m: 60
@@ -35,7 +35,7 @@ export const typographyDefault: Typography = {
   },
   headingMedium: {
     color: "primary",
-    fontWeight: "bold",
+    fontWeight: fontWeights.bold,
     lineHeight: {
       s: 24,
       m: 50
@@ -47,7 +47,7 @@ export const typographyDefault: Typography = {
   },
   headingSmall: {
     color: "primary",
-    fontWeight: "normal",
+    fontWeight: fontWeights.normal,
     lineHeight: {
       s: 24,
       m: 24
@@ -59,7 +59,7 @@ export const typographyDefault: Typography = {
   },
   bodyText: {
     color: "primary",
-    fontWeight: "normal",
+    fontWeight: fontWeights.normal,
     lineHeight: {
       s: 16,
       m: 24
@@ -71,7 +71,7 @@ export const typographyDefault: Typography = {
   },
   buttonPrimary: {
     color: "backgroundPrimary",
-    fontWeight: "bold",
+    fontWeight: fontWeights.bold,
     lineHeight: {
       s: 16,
       m: 24
@@ -84,7 +84,7 @@ export const typographyDefault: Typography = {
   },
   buttonSecondary: {
     color: "primary",
-    fontWeight: "bold",
+    fontWeight: fontWeights.bold,
     lineHeight: {
       s: 16,
       m: 24
@@ -97,7 +97,7 @@ export const typographyDefault: Typography = {
   },
   buttonTertiary: {
     color: "primary",
-    fontWeight: "bold",
+    fontWeight: fontWeights.bold,
     lineHeight: {
       s: 16,
       m: 24

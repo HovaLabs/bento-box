@@ -72,17 +72,19 @@ export type Spacings = {
   xxxl: number;
 };
 
-export type FontWeight =
-  | "thin"
-  | "extraLight"
-  | "light"
-  | "normal"
-  | "medium"
-  | "semiBold"
-  | "bold"
-  | "extraBold"
-  | "heavy"
-  | number;
+export type FontWeight = number | string;
+
+export type FontWeights = {
+  thin: "100";
+  extraLight: "200";
+  light: "300";
+  normal: "400";
+  medium: "500";
+  semiBold: "600";
+  bold: "700";
+  extraBold: "800";
+  heavy: "900";
+};
 
 type LetterSpacing = "s" | "m" | "l" | "xl" | "none" | number;
 

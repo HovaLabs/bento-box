@@ -1,3 +1,4 @@
 export { Button } from "./Button";
-export { ThemeContext, ThemeContextContainer } from "./ThemeContext";
 export { DesignSystemProvider } from "./DesignSystemProvider";
+export { ThemeContext, ThemeContextContainer } from "./ThemeContext";
+export { Text } from "./Text";

@@ -10,7 +10,7 @@ import { getPersistentTheme } from "./persistentTheme";
 // need to support passing in a theme directly from props instead of locally
 
 export const initialTheme: ThemeKey =
-  window &&
+  typeof window === "object" &&
   window.matchMedia &&
   window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "darkTheme"

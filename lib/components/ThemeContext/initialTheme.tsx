@@ -1,4 +1,4 @@
 export const isInitiallyDarkMode: boolean =
-  window &&
+  typeof window === "object" &&
   window.matchMedia &&
   window.matchMedia("(prefers-color-scheme: dark)").matches;

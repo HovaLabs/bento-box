@@ -4,6 +4,7 @@ import React from "react";
 import { ThemeContext } from "../components/ThemeContext";
 import { DimensionsContext } from "../components/DimensionsContext";
 import {
+  Colors,
   Contexts,
   Props,
   StyleObjectFunction,
@@ -21,10 +22,24 @@ import {
 //
 // In the case of a function, recursively resolve until the value is no longer a function
 const resolveStyle = (
+  key: string,
   styleValue: StyleValue,
   contexts: Contexts,
   props: any
 ): StyleValue => {
+  if (
+    ["color", "backgroundColor", "borderColor", "fill", "stroke"].includes(key)
+  ) {
+    const colorString = styleValue as keyof Colors;
+    if (Object.keys(contexts.theme.colors).includes(colorString)) {
+      return resolveStyle(
+        key,
+        contexts.theme.colors[colorString],
+        contexts,
+        props
+      );
+    }
+  }
   if (typeof styleValue === "number" || typeof styleValue === "string") {
     return styleValue;
   }
@@ -43,12 +58,12 @@ const resolveStyle = (
         breakpoint
       ] as BreakpointStyleValue;
       if (responsiveStyleValue !== undefined) {
-        return resolveStyle(responsiveStyleValue, contexts, props);
+        return resolveStyle(key, responsiveStyleValue, contexts, props);
       }
     }
     return 0; // Hack: Need better edge case story with breakpoints
   }
-  return resolveStyle(styleValue(contexts, props), contexts, props);
+  return resolveStyle(key, styleValue(contexts, props), contexts, props);
 };
 
 const createStyles = (
@@ -59,7 +74,7 @@ const createStyles = (
   const styleOutputObject: any = {};
   Object.keys(styleInputObject).forEach((key: string) => {
     const value: StyleValue = styleInputObject[key];
-    styleOutputObject[key] = resolveStyle(value, contexts, props);
+    styleOutputObject[key] = resolveStyle(key, value, contexts, props);
   });
   return styleOutputObject;
 };

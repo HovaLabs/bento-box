@@ -110,7 +110,7 @@ export type BreakpointLetterSpacing = {
 };
 
 export type TypographyValue = {
-  color: BreakpointColor | keyof Colors;
+  color: keyof Colors;
   fontSize: StyleValue;
   fontWeight: BreakpointFontWeight | FontWeight;
   letterSpacing?: BreakpointLetterSpacing | LetterSpacing;

@@ -8,3 +8,6 @@ Set up all your packages
 npm install -g lerna
 lerna bootstrap
 ```
+
+# Publishing
+Per the package.json file, run `yarn run publish`

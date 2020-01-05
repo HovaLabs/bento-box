@@ -4,7 +4,6 @@ import React from "react";
 import { ThemeContext } from "../components/ThemeContext";
 import { DimensionsContext } from "../components/DimensionsContext";
 import {
-  Colors,
   Contexts,
   Props,
   StyleObjectFunction,

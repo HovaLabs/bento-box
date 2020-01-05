@@ -1,6 +1,8 @@
+import { DefaultTheme } from "styled-components";
+
 // START CreateStyledComponents types
 export type Contexts = {
-  theme: Theme;
+  theme: DefaultTheme;
   dimensions: DimensionsContextValue;
 };
 
@@ -127,22 +129,13 @@ export type Typography = {
   buttonTertiary: TypographyValue;
 };
 
-export type Theme = {
-  name: "lightTheme" | "darkTheme";
-  breakpoints: Breakpoints;
-  colors: Colors;
-  radii: Radii;
-  spacings: Spacings;
-  typography: Typography;
-};
-
 export type ThemeContextValue = {
-  theme: Theme;
+  theme: DefaultTheme;
   setTheme: (input: ThemeKey) => void;
 };
 export type Themes = {
-  lightTheme: Theme;
-  darkTheme: Theme;
+  lightTheme: DefaultTheme;
+  darkTheme: DefaultTheme;
 };
 export type ThemeKey = keyof Themes;
 

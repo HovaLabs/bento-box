@@ -1,6 +1,7 @@
 import React from "react";
+import { ThemeProvider } from "styled-components";
 import { Themes } from "../../types";
-import { ThemeContextContainer } from "../ThemeContext";
+import { ThemeContext, ThemeContextContainer } from "../ThemeContext";
 import { DimensionsContextContainer } from "../DimensionsContext";
 
 export const DesignSystemProvider = ({
@@ -11,6 +12,12 @@ export const DesignSystemProvider = ({
   themes?: Themes;
 }): any => (
   <ThemeContextContainer themes={themes}>
-    <DimensionsContextContainer>{children}</DimensionsContextContainer>
+    <ThemeContext.Consumer>
+      {({ theme }): React.ReactElement => (
+        <ThemeProvider theme={theme}>
+          <DimensionsContextContainer>{children}</DimensionsContextContainer>
+        </ThemeProvider>
+      )}
+    </ThemeContext.Consumer>
   </ThemeContextContainer>
 );

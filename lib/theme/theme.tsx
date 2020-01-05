@@ -1,26 +1,27 @@
-import { Theme } from "../types";
+import { DefaultTheme } from "styled-components";
 import { breakpointsDefault } from "./breakpoints";
 import { colorsLightTheme, colorsDarkTheme } from "./colors";
 import { radiiDefault } from "./radii";
 import { spacingsDefault } from "./spacings";
 import { typographyDefault } from "./typography";
 
-export const lightTheme: Theme = {
-  name: "lightTheme",
+const themeBase = {
   breakpoints: breakpointsDefault,
-  colors: colorsLightTheme,
   radii: radiiDefault,
   spacings: spacingsDefault,
   typography: typographyDefault
 };
 
-export const darkTheme: Theme = {
+export const lightTheme: DefaultTheme = {
+  name: "lightTheme",
+  colors: colorsLightTheme,
+  ...themeBase
+};
+
+export const darkTheme: DefaultTheme = {
   name: "darkTheme",
-  breakpoints: breakpointsDefault,
   colors: colorsDarkTheme,
-  radii: radiiDefault,
-  spacings: spacingsDefault,
-  typography: typographyDefault
+  ...themeBase
 };
 
 export const themes = {

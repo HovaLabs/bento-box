@@ -1,10 +1,12 @@
+import styled, { css } from "styled-components";
 import { TouchableOpacity } from "react-native";
-import { createStyledComponent } from "../../helpers";
 
-export const Button = createStyledComponent(TouchableOpacity)(c => ({
-  alignItems: "center",
-  borderWidth: 0,
-  borderRadius: c.theme.radii.l,
-  backgroundColor: c.theme.colors.accentPrimary,
-  padding: c.theme.spacings.l
-}));
+export const Button = styled(TouchableOpacity)`
+  ${p => css`
+    background-color: ${p.theme.colors.accentPrimary};
+    align-items: center;
+    border-width: 0;
+    border-radius: ${p.theme.radii.l};
+    padding: ${p.theme.spacings.l};
+  `}
+`;

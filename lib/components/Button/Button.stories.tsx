@@ -4,7 +4,7 @@ import { Button } from ".";
 import { DesignSystemProvider } from "..";
 
 export default {
-  title: "My Button"
+  title: "My Button",
 };
 
 export const text = () => (

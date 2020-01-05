@@ -1,16 +1,17 @@
 import React from "react";
+import { View } from "react-native";
+import styled from "styled-components";
 
-import { createStyledComponent } from "../../helpers";
 import { Text } from ".";
 import { DesignSystemProvider } from "..";
 
 export default {
-  title: "Text"
+  title: "Text",
 };
 
-const TextContainer = createStyledComponent("div")(c => ({
-  backgroundColor: c.theme.colors.backgroundPrimary
-}));
+const TextContainer = styled(View)`
+  background-color: ${p => p.theme.colors.backgroundPrimary};
+`;
 
 export const text = (): React.ReactElement => (
   <DesignSystemProvider>

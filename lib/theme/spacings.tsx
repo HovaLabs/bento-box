@@ -7,5 +7,5 @@ export const spacingsDefault: Spacings = {
   l: 16,
   xl: 32,
   xxl: 64,
-  xxxl: 128
+  xxxl: 128,
 };

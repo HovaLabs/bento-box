@@ -20,6 +20,13 @@ module.exports = {
         "react/no-unescaped-entities": 0,
         "import/prefer-default-export": 0,
         "react/jsx-props-no-spreading": 0,
-        "import/no-cycle": 1
+        "import/no-cycle": 1,
+        "comma-dangle": ["error", {
+            "arrays": "always-multiline",
+            "objects": "always-multiline",
+            "imports": "always-multiline",
+            "exports": "always-multiline",
+            "functions": "ignore"
+        }],      
     }
 };

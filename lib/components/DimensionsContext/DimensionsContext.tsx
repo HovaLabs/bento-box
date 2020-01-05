@@ -4,7 +4,7 @@ import { Dimensions } from "react-native";
 import {
   Breakpoints,
   DimensionsContextProps,
-  DimensionsContextValue
+  DimensionsContextValue,
 } from "../../types";
 import { breakpointsDefault } from "../../theme";
 import { ThemeContext } from "../ThemeContext";
@@ -15,7 +15,7 @@ const getBreakpoint = (
 ): keyof Breakpoints => {
   const breakpointsArray = Object.entries(breakpoints).map(([key, val]) => ({
     key,
-    val: val || 0 // hack: should never be undefined, but entire key/val is optional
+    val: val || 0, // hack: should never be undefined, but entire key/val is optional
   }));
   breakpointsArray.sort((a, b) => a.val - b.val);
 
@@ -42,7 +42,7 @@ const getBreakpoint = (
 const dimensionsContextInitialValue: DimensionsContextValue = {
   width: Dimensions.get("window").width,
   height: Dimensions.get("window").height,
-  breakpoint: Object.keys(breakpointsDefault)[0] as keyof Breakpoints
+  breakpoint: Object.keys(breakpointsDefault)[0] as keyof Breakpoints,
 };
 
 export const DimensionsContext = React.createContext<DimensionsContextValue>(
@@ -50,13 +50,16 @@ export const DimensionsContext = React.createContext<DimensionsContextValue>(
 );
 
 export const DimensionsContextContainer = ({
-  children
+  children,
 }: DimensionsContextProps): any => {
   const { theme } = React.useContext(ThemeContext);
   const [dimensionsContext, setDimensionsContext] = React.useState({
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height,
-    breakpoint: getBreakpoint(Dimensions.get("window").width, theme.breakpoints)
+    breakpoint: getBreakpoint(
+      Dimensions.get("window").width,
+      theme.breakpoints
+    ),
   });
   const breakpointsRef = React.useRef(theme.breakpoints);
 
@@ -74,7 +77,7 @@ export const DimensionsContextContainer = ({
       setDimensionsContext({
         width,
         height,
-        breakpoint: newBreakpoint
+        breakpoint: newBreakpoint,
       });
     };
     Dimensions.addEventListener("change", updateBreakpoint);

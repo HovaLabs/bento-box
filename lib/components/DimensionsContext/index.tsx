@@ -1,4 +1,4 @@
 export {
   DimensionsContext,
-  DimensionsContextContainer
+  DimensionsContextContainer,
 } from "./DimensionsContext";

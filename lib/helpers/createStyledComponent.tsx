@@ -12,7 +12,7 @@ import {
   StyleObject,
   PropsStylesObject,
   Breakpoints,
-  BreakpointStyleValue
+  BreakpointStyleValue,
 } from "../types";
 
 // For a given style key/value
@@ -76,7 +76,7 @@ export const createStyledComponent = (ComponentInput: any) => (
 
       const contexts: Contexts = {
         theme,
-        dimensions
+        dimensions,
       };
 
       // If either arg is a function, resolve it to an object

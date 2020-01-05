@@ -1,11 +1,11 @@
 import React from "react";
 import * as S from "./TextStyles";
-import { TextProps } from "../../types";
+import { TextProps, Typography } from "../../types";
 
-export const Text = ({ children, typography }: TextProps) => (
-  <S.Text typography={typography}>{children}</S.Text>
-);
+export const Text = ({ children, typography }: TextProps) => {
+  const typographyKey = typography as keyof Typography;
+  return <S.Text typography={typographyKey}>{children}</S.Text>;
+};
 Text.defaultProps = {
-  typography: "bodyText",
-  children: ""
+  children: "",
 };

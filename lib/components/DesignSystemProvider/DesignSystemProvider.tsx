@@ -6,7 +6,7 @@ import { DimensionsContextContainer } from "../DimensionsContext";
 
 export const DesignSystemProvider = ({
   children,
-  themes
+  themes,
 }: {
   children: any;
   themes?: Themes;

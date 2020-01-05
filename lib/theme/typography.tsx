@@ -1,3 +1,5 @@
+import { css } from "styled-components";
+
 import { FontWeights, Typography } from "../types";
 
 export const fontWeights: FontWeights = {
@@ -9,7 +11,7 @@ export const fontWeights: FontWeights = {
   semiBold: "600",
   bold: "700",
   extraBold: "800",
-  heavy: "900"
+  heavy: "900",
 };
 
 export const letterSpacingDenominator = {
@@ -17,95 +19,78 @@ export const letterSpacingDenominator = {
   m: 16,
   l: 8,
   xl: 4,
-  none: 1
+  none: 1,
 };
 
 export const typographyDefault: Typography = {
-  headingLarge: {
-    color: "primary",
-    fontWeight: fontWeights.bold,
-    lineHeight: {
-      s: 52,
-      m: 60
-    },
-    fontSize: {
-      s: 46,
-      m: 52
-    }
-  },
-  headingMedium: {
-    color: "primary",
-    fontWeight: fontWeights.bold,
-    lineHeight: {
-      s: 24,
-      m: 50
-    },
-    fontSize: {
-      s: 20,
-      m: 34
-    }
-  },
-  headingSmall: {
-    color: "primary",
-    fontWeight: fontWeights.normal,
-    lineHeight: {
-      s: 24,
-      m: 24
-    },
-    fontSize: {
-      s: 16,
-      m: 20
-    }
-  },
-  bodyText: {
-    color: "primary",
-    fontWeight: fontWeights.normal,
-    lineHeight: {
-      s: 16,
-      m: 24
-    },
-    fontSize: {
-      s: 12,
-      m: 16
-    }
-  },
-  buttonPrimary: {
-    color: "backgroundPrimary",
-    fontWeight: fontWeights.bold,
-    lineHeight: {
-      s: 16,
-      m: 24
-    },
-    fontSize: {
-      s: 12,
-      m: 16
-    },
-    letterSpacing: "xl"
-  },
-  buttonSecondary: {
-    color: "primary",
-    fontWeight: fontWeights.bold,
-    lineHeight: {
-      s: 16,
-      m: 24
-    },
-    fontSize: {
-      s: 12,
-      m: 16
-    },
-    letterSpacing: "xl"
-  },
-  buttonTertiary: {
-    color: "primary",
-    fontWeight: fontWeights.bold,
-    lineHeight: {
-      s: 16,
-      m: 24
-    },
-    fontSize: {
-      s: 12,
-      m: 16
-    },
-    letterSpacing: "xl"
-  }
+  headingLarge: css`
+    ${p => css`
+      color: ${p.theme.colors.primary};
+      font-weight: ${fontWeights.bold};
+      ${p.theme.responsiveStyle("font-size", {
+        s: "46px",
+        m: "52px",
+      })}
+    `}
+  `,
+  headingMedium: css`
+    ${p => css`
+      color: ${p.theme.colors.primary};
+      font-weight: ${fontWeights.bold};
+      ${p.theme.responsiveStyle("font-size", {
+        s: "20px",
+        m: "34px",
+      })}
+    `}
+  `,
+  headingSmall: css`
+    ${p => css`
+      color: ${p.theme.colors.primary};
+      font-weight: ${fontWeights.bold};
+      ${p.theme.responsiveStyle("font-size", {
+        s: "16px",
+        m: "20px",
+      })}
+    `}
+  `,
+  bodyText: css`
+    ${p => css`
+      color: ${p.theme.colors.primary};
+      font-weight: ${fontWeights.normal};
+      ${p.theme.responsiveStyle("font-size", {
+        s: "12px",
+        m: "16px",
+      })}
+    `}
+  `,
+  buttonPrimary: css`
+    ${p => css`
+      color: ${p.theme.colors.primary};
+      font-weight: ${fontWeights.bold};
+      ${p.theme.responsiveStyle("font-size", {
+        s: "12px",
+        m: "16px",
+      })}
+    `}
+  `,
+  buttonSecondary: css`
+    ${p => css`
+      color: ${p.theme.colors.primary};
+      font-weight: ${fontWeights.bold};
+      ${p.theme.responsiveStyle("font-size", {
+        s: "12px",
+        m: "16px",
+      })}
+    `}
+  `,
+  buttonTertiary: css`
+    ${p => css`
+      color: ${p.theme.colors.primary};
+      font-weight: ${fontWeights.bold};
+      ${p.theme.responsiveStyle("font-size", {
+        s: "12px",
+        m: "16px",
+      })}
+    `}
+  `,
 };

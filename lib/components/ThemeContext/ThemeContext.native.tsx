@@ -6,13 +6,13 @@ import { isInitiallyDarkMode } from "./initialTheme";
 import {
   ThemeKey,
   ThemeContextValue,
-  ThemeContextContainerProps
+  ThemeContextContainerProps,
 } from "../../types";
 import { getPersistentTheme } from "./persistentTheme";
 
 export const themeContextInitialValue: ThemeContextValue = {
   theme: themes[isInitiallyDarkMode ? "darkTheme" : "lightTheme"],
-  setTheme: () => {}
+  setTheme: () => {},
 };
 
 export const ThemeContext = React.createContext<ThemeContextValue>(
@@ -20,7 +20,7 @@ export const ThemeContext = React.createContext<ThemeContextValue>(
 );
 
 export const ThemeContextContainer = ({
-  children
+  children,
 }: ThemeContextContainerProps): React.ReactElement => {
   const [theme, setThemeState] = React.useState(
     themes[isInitiallyDarkMode ? "darkTheme" : "lightTheme"]
@@ -55,13 +55,13 @@ export const ThemeContextContainer = ({
 
   const [themeContextValue, setThemeContextValue] = React.useState({
     theme,
-    setTheme
+    setTheme,
   });
 
   React.useEffect(() => {
     setThemeContextValue({
       theme,
-      setTheme
+      setTheme,
     });
   }, [theme]);
 

@@ -3,7 +3,7 @@ import { themes as defaultThemes } from "../../theme";
 import {
   ThemeKey,
   ThemeContextValue,
-  ThemeContextContainerProps
+  ThemeContextContainerProps,
 } from "../../types";
 import { getPersistentTheme } from "./persistentTheme";
 
@@ -18,7 +18,7 @@ export const initialTheme: ThemeKey =
 
 export const themeContextInitialValue: ThemeContextValue = {
   theme: defaultThemes[initialTheme],
-  setTheme: () => {}
+  setTheme: () => {},
 };
 
 export const ThemeContext = React.createContext<ThemeContextValue>(
@@ -27,7 +27,7 @@ export const ThemeContext = React.createContext<ThemeContextValue>(
 
 export const ThemeContextContainer = ({
   children,
-  themes
+  themes,
 }: ThemeContextContainerProps): React.ReactElement => {
   const [theme, setThemeState] = React.useState(themes[initialTheme]);
   const themeRef = React.useRef(theme);
@@ -73,5 +73,5 @@ export const ThemeContextContainer = ({
   );
 };
 ThemeContextContainer.defaultProps = {
-  themes: defaultThemes
+  themes: defaultThemes,
 };

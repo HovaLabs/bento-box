@@ -1,5 +1,8 @@
-import { DefaultTheme } from "styled-components";
-
+import {
+  DefaultTheme,
+  FlattenInterpolation,
+  ThemeProps,
+} from "styled-components";
 // START CreateStyledComponents types
 export type Contexts = {
   theme: DefaultTheme;
@@ -111,22 +114,14 @@ export type BreakpointLetterSpacing = {
   xl?: LetterSpacing;
 };
 
-export type TypographyValue = {
-  color: keyof Colors;
-  fontSize: StyleValue;
-  fontWeight: BreakpointFontWeight | FontWeight;
-  letterSpacing?: BreakpointLetterSpacing | LetterSpacing;
-  lineHeight: StyleValue;
-};
-
 export type Typography = {
-  headingLarge: TypographyValue;
-  headingMedium: TypographyValue;
-  headingSmall: TypographyValue;
-  bodyText: TypographyValue;
-  buttonPrimary: TypographyValue;
-  buttonSecondary: TypographyValue;
-  buttonTertiary: TypographyValue;
+  headingLarge: FlattenInterpolation<ThemeProps<DefaultTheme>>;
+  headingMedium: FlattenInterpolation<ThemeProps<DefaultTheme>>;
+  headingSmall: FlattenInterpolation<ThemeProps<DefaultTheme>>;
+  bodyText: FlattenInterpolation<ThemeProps<DefaultTheme>>;
+  buttonPrimary: FlattenInterpolation<ThemeProps<DefaultTheme>>;
+  buttonSecondary: FlattenInterpolation<ThemeProps<DefaultTheme>>;
+  buttonTertiary: FlattenInterpolation<ThemeProps<DefaultTheme>>;
 };
 
 export type ThemeContextValue = {
@@ -185,6 +180,9 @@ export interface TextProps {
    * The text to be rendered
    */
   children?: string;
+  /**
+   * Type of typography to be used
+   */
   typography?: keyof Typography;
 }
 

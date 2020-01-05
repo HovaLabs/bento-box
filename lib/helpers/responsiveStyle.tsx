@@ -1,8 +1,8 @@
-import { DefaultTheme } from "styled-components";
+import { Theme } from "./styled";
 
 type Props = {
   [key: string]: any;
-  theme: DefaultTheme;
+  theme: Theme;
 };
 
 export const responsiveStyle = (key: string, styles: any) => (
@@ -12,9 +12,13 @@ export const responsiveStyle = (key: string, styles: any) => (
   Object.entries(props.theme.breakpoints).forEach(
     ([breakpointKey, breakpointVal]) => {
       if (styles[breakpointKey] !== undefined) {
-        newStyle.push(
-          `@media screen and (min-width: ${breakpointVal}px) { ${key}: ${styles[breakpointKey]}; }`
-        );
+        if (breakpointVal === 0) {
+          newStyle.push(`${key}: ${styles[breakpointKey]};`);
+        } else {
+          newStyle.push(
+            `@media screen and (min-width: ${breakpointVal}px) { ${key}: ${styles[breakpointKey]}; }`
+          );
+        }
       }
     }
   );

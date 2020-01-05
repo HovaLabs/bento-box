@@ -11,7 +11,7 @@ export const Button = ({
   // variant,
   // onClick,
   // size,
-  title
+  title,
 }: // type,
 ButtonProps) => (
   <S.Button>

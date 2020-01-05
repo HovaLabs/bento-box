@@ -9,7 +9,7 @@ export const colorsLightTheme: Colors = {
   backgroundTertiary: "rgb(215, 215, 215)",
   accentPrimary: "rgb(255, 155, 155)",
   accentSecondary: "rgb(255, 255, 155)",
-  accentTertiary: "rgb(255, 155, 255)"
+  accentTertiary: "rgb(255, 155, 255)",
 };
 
 export const colorsDarkTheme: Colors = {
@@ -21,5 +21,5 @@ export const colorsDarkTheme: Colors = {
   backgroundTertiary: "rgb(40, 40, 40)",
   accentPrimary: "rgb(155, 55, 55)",
   accentSecondary: "rgb(155, 155, 55)",
-  accentTertiary: "rgb(155, 55, 155)"
+  accentTertiary: "rgb(155, 55, 155)",
 };

@@ -3,39 +3,6 @@ import {
   FlattenInterpolation,
   ThemeProps,
 } from "styled-components";
-// START CreateStyledComponents types
-export type Contexts = {
-  theme: DefaultTheme;
-  dimensions: DimensionsContextValue;
-};
-
-export type Props = {
-  [key: string]: any;
-};
-
-export type StyleObjectFunction = (
-  contexts: Contexts,
-  props: Props
-) => StyleObject;
-export type PropsStylesObjectFunction = (
-  context: Contexts,
-  props: Props
-) => PropsStylesObject;
-export type BreakpointStyleValue = {
-  s?: string | number | StyleFunction;
-  m?: string | number | StyleFunction;
-  l?: string | number | StyleFunction;
-  xl?: string | number | StyleFunction;
-};
-export type StyleFunction = (contexts: Contexts, props: Props) => StyleValue;
-export type StyleValue = string | number | StyleFunction | BreakpointStyleValue;
-export type StyleObject = {
-  [key: string]: StyleValue;
-};
-export type PropsStylesObject = {
-  [key: string]: StyleObject;
-};
-// END CreateStyledComponents types
 
 // START Theme typings
 export type Breakpoints = {

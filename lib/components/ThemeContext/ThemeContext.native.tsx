@@ -4,7 +4,7 @@ import { eventEmitter } from "react-native-dark-mode";
 import { themes } from "../../theme";
 import { isInitiallyDarkMode } from "./initialTheme";
 import {
-  ThemeKey,
+  Themes,
   ThemeContextValue,
   ThemeContextContainerProps,
 } from "../../types";
@@ -51,7 +51,7 @@ export const ThemeContextContainer = ({
     });
   }, []);
 
-  const setTheme = (themeKey: ThemeKey) => setThemeState(themes[themeKey]);
+  const setTheme = (themeKey: keyof Themes) => setThemeState(themes[themeKey]);
 
   const [themeContextValue, setThemeContextValue] = React.useState({
     theme,

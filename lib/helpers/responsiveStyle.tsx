@@ -1,9 +1,8 @@
 import { Theme } from "./styled";
 
-type Props = {
-  [key: string]: any;
+interface Props {
   theme: Theme;
-};
+}
 
 export const responsiveStyle = (key: string, styles: any) => (
   props: Props

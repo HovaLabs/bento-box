@@ -5,14 +5,14 @@ import {
 } from "styled-components";
 
 // START Theme typings
-export type Breakpoints = {
+export interface Breakpoints {
   s?: number;
   m?: number;
   l?: number;
   xl?: number;
-};
+}
 
-export type Colors = {
+export interface Colors {
   primary: string;
   secondary: string;
   tertiary: string;
@@ -22,9 +22,9 @@ export type Colors = {
   accentPrimary: string;
   accentSecondary: string;
   accentTertiary: string;
-};
+}
 
-export type Radii = {
+export interface Radii {
   none: 0;
   s: number;
   m: number;
@@ -32,9 +32,9 @@ export type Radii = {
   xl: number;
   xxl: number;
   round: number;
-};
+}
 
-export type Spacings = {
+export interface Spacings {
   none: number;
   s: number;
   m: number;
@@ -42,46 +42,46 @@ export type Spacings = {
   xl: number;
   xxl: number;
   xxxl: number;
-};
+}
 
 export type FontWeight = number | string;
 
-export type FontWeights = {
-  thin: "100";
-  extraLight: "200";
-  light: "300";
-  normal: "400";
-  medium: "500";
-  semiBold: "600";
-  bold: "700";
-  extraBold: "800";
-  heavy: "900";
+export const FontWeights = {
+  thin: "100",
+  extraLight: "200",
+  light: "300",
+  normal: "400",
+  medium: "500",
+  semiBold: "600",
+  bold: "700",
+  extraBold: "800",
+  heavy: "900",
 };
 
-type LetterSpacing = "s" | "m" | "l" | "xl" | "none" | number;
+export type LetterSpacing = "s" | "m" | "l" | "xl" | "none" | number;
 
-export type BreakpointColor = {
+export interface BreakpointColor {
   s?: keyof Colors;
   m?: keyof Colors;
   l?: keyof Colors;
   xl?: keyof Colors;
-};
+}
 
-export type BreakpointFontWeight = {
+export interface BreakpointFontWeight {
   s?: FontWeight;
   m?: FontWeight;
   l?: FontWeight;
   xl?: FontWeight;
-};
+}
 
-export type BreakpointLetterSpacing = {
+export interface BreakpointLetterSpacing {
   s?: LetterSpacing;
   m?: LetterSpacing;
   l?: LetterSpacing;
   xl?: LetterSpacing;
-};
+}
 
-export type Typography = {
+export interface Typography {
   headingLarge: FlattenInterpolation<ThemeProps<DefaultTheme>>;
   headingMedium: FlattenInterpolation<ThemeProps<DefaultTheme>>;
   headingSmall: FlattenInterpolation<ThemeProps<DefaultTheme>>;
@@ -89,17 +89,16 @@ export type Typography = {
   buttonPrimary: FlattenInterpolation<ThemeProps<DefaultTheme>>;
   buttonSecondary: FlattenInterpolation<ThemeProps<DefaultTheme>>;
   buttonTertiary: FlattenInterpolation<ThemeProps<DefaultTheme>>;
-};
+}
 
 export type ThemeContextValue = {
   theme: DefaultTheme;
-  setTheme: (input: ThemeKey) => void;
+  setTheme: (input: keyof Themes) => void;
 };
-export type Themes = {
+export interface Themes {
   lightTheme: DefaultTheme;
   darkTheme: DefaultTheme;
-};
-export type ThemeKey = keyof Themes;
+}
 
 export interface ButtonProps {
   /**

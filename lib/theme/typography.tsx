@@ -2,18 +2,6 @@ import { css } from "styled-components";
 
 import { FontWeights, Typography } from "../types";
 
-export const fontWeights: FontWeights = {
-  thin: "100",
-  extraLight: "200",
-  light: "300",
-  normal: "400",
-  medium: "500",
-  semiBold: "600",
-  bold: "700",
-  extraBold: "800",
-  heavy: "900",
-};
-
 export const letterSpacingDenominator = {
   s: 32,
   m: 16,
@@ -26,7 +14,7 @@ export const typographyDefault: Typography = {
   headingLarge: css`
     ${p => css`
       color: ${p.theme.colors.primary};
-      font-weight: ${fontWeights.bold};
+      font-weight: ${FontWeights.bold};
       ${p.theme.responsiveStyle("font-size", {
         s: "46px",
         m: "52px",
@@ -36,7 +24,7 @@ export const typographyDefault: Typography = {
   headingMedium: css`
     ${p => css`
       color: ${p.theme.colors.primary};
-      font-weight: ${fontWeights.bold};
+      font-weight: ${FontWeights.bold};
       ${p.theme.responsiveStyle("font-size", {
         s: "20px",
         m: "34px",
@@ -46,7 +34,7 @@ export const typographyDefault: Typography = {
   headingSmall: css`
     ${p => css`
       color: ${p.theme.colors.primary};
-      font-weight: ${fontWeights.bold};
+      font-weight: ${FontWeights.bold};
       ${p.theme.responsiveStyle("font-size", {
         s: "16px",
         m: "20px",
@@ -56,7 +44,7 @@ export const typographyDefault: Typography = {
   bodyText: css`
     ${p => css`
       color: ${p.theme.colors.primary};
-      font-weight: ${fontWeights.normal};
+      font-weight: ${FontWeights.normal};
       ${p.theme.responsiveStyle("font-size", {
         s: "12px",
         m: "16px",
@@ -66,7 +54,7 @@ export const typographyDefault: Typography = {
   buttonPrimary: css`
     ${p => css`
       color: ${p.theme.colors.primary};
-      font-weight: ${fontWeights.bold};
+      font-weight: ${FontWeights.bold};
       ${p.theme.responsiveStyle("font-size", {
         s: "12px",
         m: "16px",
@@ -76,7 +64,7 @@ export const typographyDefault: Typography = {
   buttonSecondary: css`
     ${p => css`
       color: ${p.theme.colors.primary};
-      font-weight: ${fontWeights.bold};
+      font-weight: ${FontWeights.bold};
       ${p.theme.responsiveStyle("font-size", {
         s: "12px",
         m: "16px",
@@ -86,7 +74,7 @@ export const typographyDefault: Typography = {
   buttonTertiary: css`
     ${p => css`
       color: ${p.theme.colors.primary};
-      font-weight: ${fontWeights.bold};
+      font-weight: ${FontWeights.bold};
       ${p.theme.responsiveStyle("font-size", {
         s: "12px",
         m: "16px",

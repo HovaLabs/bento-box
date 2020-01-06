@@ -1,7 +1,7 @@
 import React from "react";
 import { themes as defaultThemes } from "../../theme";
 import {
-  ThemeKey,
+  Themes,
   ThemeContextValue,
   ThemeContextContainerProps,
 } from "../../types";
@@ -9,7 +9,7 @@ import { getPersistentTheme } from "./persistentTheme";
 
 // need to support passing in a theme directly from props instead of locally
 
-export const initialTheme: ThemeKey =
+export const initialTheme: keyof Themes =
   typeof window === "object" &&
   window.matchMedia &&
   window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -37,7 +37,7 @@ export const ThemeContextContainer = ({
   });
 
   React.useEffect(() => {
-    const themeChangeListener = async () => {
+    const themeChangeListener = async (): Promise<void> => {
       const themeKey = await getPersistentTheme();
 
       if (!themeKey) {
@@ -55,7 +55,7 @@ export const ThemeContextContainer = ({
         .addListener(themeChangeListener);
     }
 
-    return () => {
+    return (): void => {
       if (window && window.matchMedia) {
         window
           .matchMedia("(prefers-color-scheme: dark)")
@@ -64,7 +64,8 @@ export const ThemeContextContainer = ({
     };
   }, []);
 
-  const setTheme = (themeKey: ThemeKey) => setThemeState(themes[themeKey]);
+  const setTheme = (themeKey: keyof Themes): void =>
+    setThemeState(themes[themeKey]);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>

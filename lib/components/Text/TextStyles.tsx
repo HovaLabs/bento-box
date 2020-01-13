@@ -1,9 +1,11 @@
 import { Text as TextRN } from "react-native";
 import styled from "styled-components";
-import { Typography } from "../../types";
+import { Colors, Typography } from "../../types";
 
 interface TextProps {
+  className?: string;
   readonly typography: keyof Typography;
+  readonly color?: keyof Colors;
 }
 
 export const Text = styled(TextRN)<TextProps>`
@@ -13,4 +15,5 @@ export const Text = styled(TextRN)<TextProps>`
       : p.theme.typography.bodyText;
     return typography;
   }}
+  ${p => (p.color ? `color: ${p.theme.colors[p.color]};` : "")}
 `;

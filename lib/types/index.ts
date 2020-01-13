@@ -142,10 +142,15 @@ export interface ButtonProps {
 }
 
 export interface TextProps {
+  className?: string;
   /**
    * The text to be rendered
    */
   children?: string;
+  /**
+   * Allow overwriting the color
+   */
+  color?: keyof Colors;
   /**
    * Type of typography to be used
    */

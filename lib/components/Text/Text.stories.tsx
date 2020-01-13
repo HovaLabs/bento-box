@@ -17,6 +17,7 @@ export const text = (): React.ReactElement => (
   <DesignSystemProvider>
     <TextContainer>
       <Text>sup?</Text>
+      <Text color="accentSecondary">yo</Text>
     </TextContainer>
   </DesignSystemProvider>
 );

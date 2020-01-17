@@ -3,6 +3,7 @@ import {
   FlattenInterpolation,
   ThemeProps,
 } from "styled-components";
+import { TextProps as TextPropsRN } from "react-native";
 
 // START Theme typings
 export interface Breakpoints {
@@ -141,12 +142,12 @@ export interface ButtonProps {
   variant?: "primary" | "secondary" | "tertiary";
 }
 
-export interface TextProps {
+export interface TextProps extends TextPropsRN {
   className?: string;
   /**
    * The text to be rendered
    */
-  children?: string;
+  children?: string | Array<string>;
   /**
    * Allow overwriting the color
    */

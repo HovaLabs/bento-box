@@ -6,3 +6,4 @@ export {
 } from "./DimensionsContext";
 export { ThemeContext, ThemeContextContainer } from "./ThemeContext";
 export { Text } from "./Text";
+export { Icon } from "./Icon";

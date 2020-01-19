@@ -3,7 +3,7 @@ import {
   FlattenInterpolation,
   ThemeProps,
 } from "styled-components";
-import { TextProps as TextPropsRN } from "react-native";
+import { TextProps as TextPropsRN, GestureResponderEvent } from "react-native";
 
 // START Theme typings
 export interface Breakpoints {
@@ -104,8 +104,9 @@ export interface Themes {
 export interface ButtonProps {
   /**
    * Press handler function
+   * This will be ignored if href is preset or if disabled
    */
-  onPress: (e: Event) => void;
+  onPress: (e: GestureResponderEvent) => void;
   /**
    * The content to be rendered inside of the button
    * If present, this prop will override any other content props
@@ -119,10 +120,6 @@ export interface ButtonProps {
    * Use button as a url. This will cause the "onClick" handler to be ignored
    */
   href?: string;
-  /**
-   * Click handler for the button. This will be ignored if href is preset or if disabled
-   */
-  onClick?: Function;
   /**
    * Set the size of the button
    * @default "l"

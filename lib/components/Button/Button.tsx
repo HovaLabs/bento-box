@@ -9,12 +9,14 @@ export const Button = ({
   // disabled,
   // href,
   // variant,
-  // onClick,
   // size,
+  onPress,
   title,
-}: // type,
-ButtonProps) => (
-  <S.Button>
-    <Text typography="buttonPrimary">{title}</Text>
-  </S.Button>
-);
+}: ButtonProps): React.ReactElement => {
+  const foo = (
+    <S.Button onPress={onPress}>
+      <Text typography="buttonPrimary">{title}</Text>
+    </S.Button>
+  );
+  return foo;
+};

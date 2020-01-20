@@ -1,9 +1,7 @@
-export { Button } from "./Button";
-export { DesignSystemProvider } from "./DesignSystemProvider";
-export {
-  DimensionsContext,
-  DimensionsContextContainer,
-} from "./DimensionsContext";
-export { ThemeContext, ThemeContextContainer } from "./ThemeContext";
-export { Text } from "./Text";
-export { Icon } from "./Icon";
+export * from "./Button";
+export * from "./DesignSystemProvider";
+export * from "./DimensionsContext";
+export * from "./ThemeContext";
+export * from "./Text";
+export * from "./Icon";
+export * from "./Icons";

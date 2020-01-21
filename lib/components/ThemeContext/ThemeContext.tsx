@@ -101,7 +101,7 @@ export const ThemeContextContainer = ({
           .removeListener(themeChangeListener);
       }
     };
-  }, [theme]);
+  }, [theme, dimensionsContext]);
 
   const setTheme = (themeKey: keyof Themes): void =>
     setThemeState({

@@ -15,9 +15,18 @@ const StoryContainer = styled("div")`
   background: ${p => p.theme.colors.backgroundPrimary};
 `;
 
+const ResponsiveIcon = styled(Icon).attrs(p => ({
+  size: p.theme.responsiveValue({
+    s: 38,
+    l: 70,
+  })(p),
+  IconComponent: HovaLabsLogo,
+}))``;
+
 export const text = (): React.ReactElement => (
   <DesignSystemProvider>
     <StoryContainer>
+      <ResponsiveIcon />
       <Icon IconComponent={Spinner} size={32} />
       <Icon
         IconComponent={Spinner}

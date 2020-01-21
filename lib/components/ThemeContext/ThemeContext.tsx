@@ -1,13 +1,14 @@
 import React from "react";
+import { Dimensions } from "react-native";
 import { themes as defaultThemes } from "../../theme";
 import {
+  Breakpoints,
   Themes,
   ThemeContextValue,
   ThemeContextContainerProps,
 } from "../../types";
 import { getPersistentTheme } from "./persistentTheme";
-
-// need to support passing in a theme directly from props instead of locally
+import { getBreakpoint } from "../../helpers";
 
 export const initialTheme: keyof Themes =
   typeof window === "object" &&
@@ -17,7 +18,15 @@ export const initialTheme: keyof Themes =
     : "lightTheme";
 
 export const themeContextInitialValue: ThemeContextValue = {
-  theme: defaultThemes[initialTheme],
+  theme: {
+    ...defaultThemes[initialTheme],
+    width: Dimensions.get("window").width,
+    height: Dimensions.get("window").height,
+    breakpoint: getBreakpoint(
+      Dimensions.get("window").width,
+      defaultThemes[initialTheme].breakpoints
+    ) as keyof Breakpoints,
+  },
   setTheme: () => {},
 };
 
@@ -30,21 +39,52 @@ export const ThemeContextContainer = ({
   themes,
 }: ThemeContextContainerProps): React.ReactElement => {
   const [theme, setThemeState] = React.useState(themes[initialTheme]);
-  const themeRef = React.useRef(theme);
+  const [dimensionsContext, setDimensionsContext] = React.useState({
+    width: Dimensions.get("window").width,
+    height: Dimensions.get("window").height,
+    breakpoint: getBreakpoint(
+      Dimensions.get("window").width,
+      theme.breakpoints
+    ),
+  });
 
   React.useEffect(() => {
-    themeRef.current = theme; // Write it to the ref
-  });
+    debugger;
+    const updateBreakpoint = (): void => {
+      const { height, width } = Dimensions.get("window");
+      const newBreakpoint = getBreakpoint(
+        Dimensions.get("window").width,
+        theme.breakpoints
+      );
+
+      setDimensionsContext({
+        width,
+        height,
+        breakpoint: newBreakpoint,
+      });
+    };
+    Dimensions.addEventListener("change", updateBreakpoint);
+
+    return (): void => {
+      Dimensions.removeEventListener("change", updateBreakpoint);
+    };
+  }, [theme]);
 
   React.useEffect(() => {
     const themeChangeListener = async (): Promise<void> => {
       const themeKey = await getPersistentTheme();
 
       if (!themeKey) {
-        if (themeRef.current.name === "darkTheme") {
-          setThemeState(themes.lightTheme);
-        } else if (themeRef.current.name === "lightTheme") {
-          setThemeState(themes.darkTheme);
+        if (theme.name === "darkTheme") {
+          setThemeState({
+            ...themes.lightTheme,
+            ...dimensionsContext,
+          });
+        } else if (theme.name === "lightTheme") {
+          setThemeState({
+            ...themes.darkTheme,
+            ...dimensionsContext,
+          });
         }
       }
     };
@@ -62,10 +102,13 @@ export const ThemeContextContainer = ({
           .removeListener(themeChangeListener);
       }
     };
-  }, []);
+  }, [theme]);
 
   const setTheme = (themeKey: keyof Themes): void =>
-    setThemeState(themes[themeKey]);
+    setThemeState({
+      ...themes[themeKey],
+      ...dimensionsContext,
+    });
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>

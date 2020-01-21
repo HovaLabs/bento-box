@@ -163,9 +163,3 @@ export interface ThemeContextContainerProps {
 export interface DimensionsContextProps {
   children: any;
 }
-
-export type DimensionsContextValue = {
-  width: number;
-  height: number;
-  breakpoint: keyof Breakpoints;
-};

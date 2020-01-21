@@ -1,1 +1,2 @@
-export { responsiveStyle } from "./responsiveStyle";
+export { responsiveStyle, responsiveValue } from "./responsiveStyle";
+export { getBreakpoint } from "./getBreakpoint";

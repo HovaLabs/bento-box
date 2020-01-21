@@ -42,17 +42,18 @@ const IconStyles = styled("div")<IconStylesProps>`
 
 type BentoBoxIcon = (props: IconWrapperProps) => React.ReactElement;
 interface IconProps {
-  size: number;
-  IconComponent: StyledIcon | BentoBoxIcon;
+  size?: number;
+  IconComponent?: StyledIcon | BentoBoxIcon | any;
   onPress?: (e: NativeSyntheticEvent<NativeTouchEvent>) => void;
 }
 
 export const Icon = ({
   IconComponent,
   onPress,
-  size,
+  size: sizeProp,
   ...rest
 }: IconProps): React.ReactElement => {
+  const size = sizeProp == null ? 32 : sizeProp;
   return (
     <TouchableOpacityWrapper onPress={onPress} size={size}>
       <IconStyles>

@@ -31,8 +31,11 @@ const TouchableOpacityWrapper = ({
 
 interface IconStylesProps {
   color?: string;
+  onPress?: (e: NativeSyntheticEvent<NativeTouchEvent>) => void;
 }
-const IconStyles = styled("div")<IconStylesProps>`
+const IconStyles = styled("div").attrs((p: IconStylesProps) => ({
+  as: p.onPress ? TouchableOpacity : undefined,
+}))<IconStylesProps>`
   * {
     color: ${p => p.color || p.theme.colors.primary};
     fill: ${p => p.color || p.theme.colors.primary};
@@ -49,16 +52,14 @@ interface IconProps {
 
 export const Icon = ({
   IconComponent,
-  onPress,
   size: sizeProp,
+  onPress,
   ...rest
 }: IconProps): React.ReactElement => {
   const size = sizeProp == null ? 32 : sizeProp;
   return (
-    <TouchableOpacityWrapper onPress={onPress} size={size}>
-      <IconStyles>
-        <IconComponent size={size} {...rest} />
-      </IconStyles>
-    </TouchableOpacityWrapper>
+    <IconStyles onPress={onPress} {...rest}>
+      <IconComponent size={size} />
+    </IconStyles>
   );
 };

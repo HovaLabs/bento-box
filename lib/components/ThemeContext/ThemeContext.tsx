@@ -49,7 +49,6 @@ export const ThemeContextContainer = ({
   });
 
   React.useEffect(() => {
-    debugger;
     const updateBreakpoint = (): void => {
       const { height, width } = Dimensions.get("window");
       const newBreakpoint = getBreakpoint(

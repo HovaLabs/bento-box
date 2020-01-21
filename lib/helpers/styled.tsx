@@ -2,7 +2,7 @@ import * as styledComponents from "styled-components/native";
 
 import { Breakpoints, Colors, Radii, Spacings, Typography } from "../types";
 
-export interface Theme {
+interface Theme {
   name: "lightTheme" | "darkTheme";
   breakpoints: Breakpoints;
   colors: Colors;
@@ -10,7 +10,7 @@ export interface Theme {
   spacings: Spacings;
   typography: Typography;
   responsiveStyle: (styleKey: string, styleObject: any) => any;
-  responsiveValue: (styleObject: any) => any;
+  responsiveValue: (styleObject: any) => (props: any) => any;
   width: number;
   height: number;
   breakpoint: keyof Breakpoints;

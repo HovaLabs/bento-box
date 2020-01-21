@@ -1,7 +1,7 @@
-import { Theme } from "./styled";
+import { DefaultTheme } from "styled-components";
 
 interface Props {
-  theme: Theme;
+  theme: DefaultTheme;
 }
 
 /*

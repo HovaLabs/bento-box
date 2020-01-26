@@ -1,9 +1,8 @@
 import React from "react";
-// import { View } from "react-native";
 import styled from "styled-components";
 import { Spinner } from "styled-icons/fa-solid/Spinner";
 import { DesignSystemProvider } from "..";
-import { HovaLabsLogo } from "../..";
+import { HovaLabsLogo } from "../Icons";
 
 import { Icon } from ".";
 
@@ -21,12 +20,18 @@ const ResponsiveIcon = styled(Icon).attrs(p => ({
     l: 70,
   })(p),
   IconComponent: HovaLabsLogo,
-}))``;
+  hoverColor: p.theme.colors.accentSecondary,
+}))`
+  * {
+    transition: all 100ms;
+  }
+`;
 
 export const text = (): React.ReactElement => (
   <DesignSystemProvider>
     <StoryContainer>
       <ResponsiveIcon />
+      <ResponsiveIcon onPress={() => {}} />
       <Icon IconComponent={Spinner} size={32} />
       <Icon
         IconComponent={Spinner}

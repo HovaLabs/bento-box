@@ -1,1 +1,0 @@
-export { HovaLabsLogo } from "./HovaLabsLogo";

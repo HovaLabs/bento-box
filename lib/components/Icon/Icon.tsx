@@ -5,61 +5,70 @@ import {
   TouchableOpacity,
 } from "react-native";
 import styled from "styled-components";
-import { StyledIcon } from "styled-icons/types";
-import { IconWrapperProps } from "../Icons/IconWrapper";
+import { IconBaseProps } from "react-icons";
 
-interface TouchableOpacityWrapperProps {
-  onPress?: (e: NativeSyntheticEvent<NativeTouchEvent>) => void;
-  size: number;
-  children: React.ReactNode;
+interface IconStyleProps extends IconBaseProps {
+  hoverColor?: string;
 }
-const TouchableOpacityWrapper = ({
-  onPress,
-  size,
-  children,
-}: TouchableOpacityWrapperProps): React.ReactElement => {
-  if (!onPress) {
-    return <>{children}</>;
-  }
-
-  return (
-    <TouchableOpacity style={{ width: size, height: size }} onPress={onPress}>
-      {children}
-    </TouchableOpacity>
-  );
+type IconProps = {
+  IconComponent: (p: IconStyleProps) => JSX.Element | any; // A bit messy but the typing on built components is crazy
+  onPress?: (e: NativeSyntheticEvent<NativeTouchEvent>) => void;
+  children?: React.ReactNode;
+  size?: string | number;
+  color?: string;
+  hoverColor?: string;
+  title?: string;
 };
 
-interface IconStylesProps {
-  color?: string;
-  onPress?: (e: NativeSyntheticEvent<NativeTouchEvent>) => void;
-}
-const IconStyles = styled("div").attrs((p: IconStylesProps) => ({
-  as: p.onPress ? TouchableOpacity : undefined,
-}))<IconStylesProps>`
+const IconWrapper = ({
+  IconComponent,
+  onPress,
+  children,
+  size,
+  color,
+  hoverColor,
+  title,
+  ...rest
+}: IconProps): JSX.Element => {
+  if (onPress) {
+    const foo = (
+      <TouchableOpacity onPress={onPress}>
+        <IconComponent
+          size={size}
+          color={color}
+          hoverColor={hoverColor}
+          title={title}
+          {...rest}
+        >
+          {children}
+        </IconComponent>
+      </TouchableOpacity>
+    );
+    return foo;
+  }
+  const bar = (
+    <IconComponent
+      size={size}
+      color={color}
+      hoverColor={hoverColor}
+      title={title}
+      {...rest}
+    >
+      {children}
+    </IconComponent>
+  );
+  return bar;
+};
+
+export const Icon = styled(IconWrapper)<IconProps>`
   * {
     color: ${p => p.color || p.theme.colors.primary};
     fill: ${p => p.color || p.theme.colors.primary};
     stroke: ${p => p.color || p.theme.colors.primary};
   }
+  :hover * {
+    color: ${p => p.hoverColor || p.theme.colors.primary};
+    fill: ${p => p.hoverColor || p.theme.colors.primary};
+    stroke: ${p => p.hoverColor || p.theme.colors.primary};
+  }
 `;
-
-type BentoBoxIcon = (props: IconWrapperProps) => React.ReactElement;
-interface IconProps {
-  size?: number;
-  IconComponent?: StyledIcon | BentoBoxIcon | any;
-  onPress?: (e: NativeSyntheticEvent<NativeTouchEvent>) => void;
-}
-
-export const Icon = ({
-  IconComponent,
-  size: sizeProp,
-  onPress,
-  ...rest
-}: IconProps): React.ReactElement => {
-  const size = sizeProp == null ? 32 : sizeProp;
-  return (
-    <IconStyles onPress={onPress} {...rest}>
-      <IconComponent size={size} />
-    </IconStyles>
-  );
-};

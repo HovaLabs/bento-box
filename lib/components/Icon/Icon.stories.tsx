@@ -2,9 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { Spinner } from "styled-icons/fa-solid/Spinner";
 import { DesignSystemProvider } from "..";
-import { HovaLabsLogo } from "../Icons";
+import * as Icons from "../Icons";
 
 import { Icon } from ".";
+
+const { HovaLabsLogo } = Icons;
 
 export default {
   title: "Icon",
@@ -30,6 +32,27 @@ const ResponsiveIcon = styled(Icon).attrs(p => ({
 export const text = (): React.ReactElement => (
   <DesignSystemProvider>
     <StoryContainer>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))",
+          gridGap: 32,
+        }}
+      >
+        {Object.entries(Icons).map(([name, IconComponent]) => (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <IconComponent size={32} />
+            <div style={{ padding: 8 }}>{name}</div>
+          </div>
+        ))}
+      </div>
       <ResponsiveIcon />
       <ResponsiveIcon onPress={() => {}} />
       <Icon IconComponent={Spinner} size={32} />

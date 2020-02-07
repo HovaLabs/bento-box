@@ -12,7 +12,7 @@ import { getPersistentTheme } from "./persistentTheme";
 
 export const themeContextInitialValue: ThemeContextValue = {
   theme: themes[isInitiallyDarkMode ? "darkTheme" : "lightTheme"],
-  setTheme: () => {},
+  // setTheme: () => {},
 };
 
 export const ThemeContext = React.createContext<ThemeContextValue>(
@@ -49,19 +49,19 @@ export const ThemeContextContainer = ({
         console.error("unknown mode", newMode);
       }
     });
-  }, []);
+  }, [theme.name]);
 
-  const setTheme = (themeKey: keyof Themes) => setThemeState(themes[themeKey]);
+  // const setTheme = (themeKey: keyof Themes) => setThemeState(themes[themeKey]);
 
   const [themeContextValue, setThemeContextValue] = React.useState({
     theme,
-    setTheme,
+    // setTheme,
   });
 
   React.useEffect(() => {
     setThemeContextValue({
       theme,
-      setTheme,
+      // setTheme,
     });
   }, [theme]);
 

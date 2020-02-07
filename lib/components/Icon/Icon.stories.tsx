@@ -3,17 +3,18 @@ import styled from "styled-components";
 import { Spinner } from "styled-icons/fa-solid/Spinner";
 import { DesignSystemProvider } from "..";
 import * as Icons from "../Icons";
-
+import { Text } from "../Text";
 import { Icon } from ".";
 
 const { HovaLabsLogo } = Icons;
 
 export default {
-  title: "Icon",
+  title: "Icon | Icon",
 };
 
 const StoryContainer = styled("div")`
   background: ${p => p.theme.colors.backgroundPrimary};
+  padding: ${p => p.theme.spacings.xl}px;
 `;
 
 const ResponsiveIcon = styled(Icon).attrs(p => ({
@@ -29,7 +30,7 @@ const ResponsiveIcon = styled(Icon).attrs(p => ({
   }
 `;
 
-export const text = (): React.ReactElement => (
+export const icon = (): React.ReactElement => (
   <DesignSystemProvider>
     <StoryContainer>
       <div
@@ -48,8 +49,8 @@ export const text = (): React.ReactElement => (
               justifyContent: "center",
             }}
           >
-            <IconComponent size={32} />
-            <div style={{ padding: 8 }}>{name}</div>
+            <Icon IconComponent={IconComponent} />
+            <Text style={{ padding: 8 }}>{name}</Text>
           </div>
         ))}
       </div>

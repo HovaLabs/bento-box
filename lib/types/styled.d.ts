@@ -1,6 +1,6 @@
 import { DefaultTheme } from "styled-components";
 
-import { Breakpoints } from ".";
+import { Breakpoints, Colors, Radii, Spacings, Typography } from ".";
 
 declare module "styled-components" {
   export interface DefaultTheme {

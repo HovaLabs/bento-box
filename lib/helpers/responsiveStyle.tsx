@@ -27,7 +27,7 @@ export const responsiveValue = (styles: any) => (props: Props): any => {
     }
   }
   console.error("Unable to find a responsvie value");
-  return 0;
+  return undefined;
 };
 
 /*

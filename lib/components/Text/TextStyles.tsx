@@ -17,3 +17,7 @@ export const Text = styled(TextRN)<TextProps>`
   }}
   ${p => (p.color ? `color: ${p.theme.colors[p.color]};` : "")}
 `;
+
+const Foo = styled.div`
+  color: ${p => p.theme.colors.accentPrimary};
+`;

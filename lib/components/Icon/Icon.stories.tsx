@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Spinner } from "styled-icons/fa-solid/Spinner";
+import { actions } from "@storybook/addon-actions";
 import { DesignSystemProvider } from "..";
 import * as Icons from "../Icons";
 import { Text } from "../Text";
@@ -60,12 +61,12 @@ export const icon = (): React.ReactElement => (
       <Icon
         IconComponent={Spinner}
         size={32}
-        onPress={() => console.log("heyo")}
+        onPress={() => actions("pressed")}
       />
       <Icon
         IconComponent={HovaLabsLogo}
         size={100}
-        onPress={() => console.log("heyo")}
+        onPress={() => actions("pressed")}
       />
     </StoryContainer>
   </DesignSystemProvider>

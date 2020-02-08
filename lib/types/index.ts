@@ -94,7 +94,7 @@ export interface Typography {
 
 export type ThemeContextValue = {
   theme: DefaultTheme;
-  // setTheme: (input: keyof Themes) => void;
+  setThemeByThemeKey: (input: keyof Themes) => void;
 };
 export interface Themes {
   lightTheme: DefaultTheme;

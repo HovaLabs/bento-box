@@ -38,7 +38,7 @@ export const initialThemeContextValue: ThemeContextValue = {
     height: Dimensions.get("window").height,
     width: Dimensions.get("window").width,
   },
-  // setTheme: () => {},
+  setThemeByThemeKey: () => {},
 };
 
 // FINAL VARIABLES
@@ -75,6 +75,10 @@ export const ThemeContextContainer = ({
   const [theme, setTheme] = React.useState(
     addDimensionsToTheme(themes[initialThemeKey])
   );
+
+  const setThemeByThemeKey = (themeKey: keyof Themes): void => {
+    setTheme(themes[themeKey]);
+  };
 
   // updates theme when theme updates
   const themeRef = React.useRef<DefaultTheme>(theme);
@@ -126,7 +130,9 @@ export const ThemeContextContainer = ({
   }, []); // run only once on Mount
 
   return (
-    <ThemeContext.Provider value={{ theme }}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={{ theme, setThemeByThemeKey }}>
+      {children}
+    </ThemeContext.Provider>
   );
 };
 ThemeContextContainer.defaultProps = {

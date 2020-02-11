@@ -161,5 +161,5 @@ export interface ThemeContextContainerProps {
 }
 
 export interface DimensionsContextProps {
-  children: any;
+  children: React.ReactNode;
 }

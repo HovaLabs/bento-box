@@ -2,12 +2,17 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   plugins: [
+    'react',
     'react-hooks',
+    'react-native',
     '@typescript-eslint',
     'jest',
     'prettier'
   ],
   parserOptions: {
+    'ecmaFeatures': {
+      'jsx': true
+    },
     ecmaVersion: 2018,  // Allows for the parsing of modern ECMAScript features
     sourceType: 'module',  // Allows for the use of imports
   },
@@ -18,6 +23,12 @@ module.exports = {
     'plugin:prettier/recommended',  // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
   ],
   rules: {
+    'react-native/no-unused-styles': 'error',
+    'react-native/split-platform-components': 'error',
+    'react-native/no-inline-styles': 'error',
+    'react-native/no-color-literals': 'error',
+    'react-native/no-single-element-style-arrays': 'error',
+    'react-native/no-raw-text': 'error',
     'react/no-unescaped-entities': 0,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
@@ -37,5 +48,8 @@ module.exports = {
         allowExpressions: true
       }
     ]
+  },
+  'env': {
+    'react-native/react-native': true
   }
 };

@@ -1,38 +1,26 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { withKnobs, boolean } from "@storybook/addon-knobs";
 
 import { Button } from ".";
 import { DesignSystemProvider } from "..";
 
 export default {
   title: "My Button",
+  decorators: [withKnobs],
 };
 
-const Foo = styled.div`
-  color: red;
-  ${p =>
-    p.theme.responsiveValue({
-      s: css`
-        background-color: pink;
-      `,
-      m: css`
-        background-color: green;
-      `,
-      l: css`
-        display: none;
-      `,
-    })}
-`;
-
-export const text = () => (
+export const text = (): React.ReactElement => (
   <DesignSystemProvider>
-    <Foo>Helllllllo</Foo>
-    <Button
-      onPress={() => {
-        console.log("yo");
-      }}
-      title="Hello Button"
-    />
+    <div style={{ margin: 16 }}>
+      <Button
+        disabled={boolean("Disabled", false)}
+        onPress={() => {
+          console.log("yo");
+        }}
+        title="Hello Button"
+      />
+    </div>
   </DesignSystemProvider>
 );
 

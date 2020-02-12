@@ -10,7 +10,7 @@ export default {
 };
 
 const TextContainer = styled(View)`
-  background-color: ${p => p.theme.colors.backgroundPrimary};
+  background-color: ${p => p.theme.colors.background};
 `;
 
 const yearString = `Copyright Hova Labs 2019 - ${new Date()
@@ -21,7 +21,7 @@ export const text = (): React.ReactElement => (
   <DesignSystemProvider>
     <TextContainer>
       <Text>sup?</Text>
-      <Text color="accentSecondary">yo</Text>
+      <Text color="secondary">yo</Text>
       <Text>{yearString}</Text>
     </TextContainer>
   </DesignSystemProvider>

@@ -14,15 +14,14 @@ export interface Breakpoints {
 }
 
 export interface Colors {
+  onBackground: string;
+  onSurface: string;
+  onPrimary: string;
+  onSecondary: string;
+  background: string;
+  surface: string;
   primary: string;
   secondary: string;
-  tertiary: string;
-  backgroundPrimary: string;
-  backgroundSecondary: string;
-  backgroundTertiary: string;
-  accentPrimary: string;
-  accentSecondary: string;
-  accentTertiary: string;
 }
 
 export interface Radii {
@@ -137,6 +136,10 @@ export interface ButtonProps {
    * Which type of button?
    */
   variant?: "primary" | "secondary" | "tertiary";
+  /**
+   * Style
+   */
+  style?: any;
 }
 
 export interface TextProps extends TextPropsRN {

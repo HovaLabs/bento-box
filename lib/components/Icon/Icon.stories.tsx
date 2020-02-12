@@ -14,7 +14,7 @@ export default {
 };
 
 const StoryContainer = styled("div")`
-  background: ${p => p.theme.colors.backgroundPrimary};
+  background: ${p => p.theme.colors.background};
   padding: ${p => p.theme.spacings.xl}px;
 `;
 
@@ -24,7 +24,7 @@ const ResponsiveIcon = styled(Icon).attrs(p => ({
     l: 70,
   })(p),
   IconComponent: HovaLabsLogo,
-  hoverColor: p.theme.colors.accentSecondary,
+  hoverColor: p.theme.colors.secondary,
 }))`
   * {
     transition: all 100ms;

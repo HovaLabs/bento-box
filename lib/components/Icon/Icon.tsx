@@ -62,13 +62,13 @@ const IconWrapper = ({
 
 export const Icon = styled(IconWrapper)<IconProps>`
   * {
-    color: ${p => p.color || p.theme.colors.primary};
-    fill: ${p => p.color || p.theme.colors.primary};
-    stroke: ${p => p.color || p.theme.colors.primary};
+    color: ${p => p.color || p.theme.colors.onBackground};
+    fill: ${p => p.color || p.theme.colors.onBackground};
+    stroke: ${p => p.color || p.theme.colors.onBackground};
   }
   :hover * {
-    color: ${p => p.hoverColor || p.theme.colors.primary};
-    fill: ${p => p.hoverColor || p.theme.colors.primary};
-    stroke: ${p => p.hoverColor || p.theme.colors.primary};
+    color: ${p => p.hoverColor || p.theme.colors.onBackground};
+    fill: ${p => p.hoverColor || p.theme.colors.onBackground};
+    stroke: ${p => p.hoverColor || p.theme.colors.onBackground};
   }
 `;

@@ -80,12 +80,6 @@ export const ThemeContextContainer = ({
     setTheme(themes[themeKey]);
   };
 
-  // updates theme when theme updates
-  const themeRef = React.useRef<DefaultTheme>(theme);
-  React.useEffect(() => {
-    themeRef.current = theme;
-  });
-
   // Watch for Breakpoint updates
   // Returns current breakpoint
   React.useEffect(() => {
@@ -99,15 +93,20 @@ export const ThemeContextContainer = ({
     };
   }, [addDimensionsToTheme, theme]);
 
-  // mounts listeners to watch for Theme Changes
+  // mounts/unmounts listeners to watch for theme changes
+  // We aren't passing in theme, because we don't want this useEffect to re-fire when theme updates
+  // So in order to pass in a dynamic theme we use useRef
+  const themeRef = React.useRef<DefaultTheme>(theme);
+  React.useEffect(() => {
+    themeRef.current = theme;
+  });
   React.useEffect(() => {
     const themeChangeListener = async (): Promise<void> => {
       const themeKey = await getPersistentTheme();
-
       if (!themeKey) {
-        if (theme.name === "darkTheme") {
+        if (themeRef.current.name === "darkTheme") {
           setTheme(addDimensionsToTheme(themes.lightTheme));
-        } else if (theme.name === "lightTheme") {
+        } else if (themeRef.current.name === "lightTheme") {
           setTheme(addDimensionsToTheme(themes.darkTheme));
         }
       }

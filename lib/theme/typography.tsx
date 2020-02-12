@@ -13,7 +13,7 @@ export const letterSpacingDenominator = {
 export const typographyDefault: Typography = {
   headingLarge: css`
     ${p => css`
-      color: ${p.theme.colors.primary};
+      color: ${p.theme.colors.onBackground};
       font-weight: ${FontWeights.bold};
       ${p.theme.responsiveStyle("font-size", {
         s: "46px",
@@ -23,7 +23,7 @@ export const typographyDefault: Typography = {
   `,
   headingMedium: css`
     ${p => css`
-      color: ${p.theme.colors.primary};
+      color: ${p.theme.colors.onBackground};
       font-weight: ${FontWeights.bold};
       ${p.theme.responsiveStyle("font-size", {
         s: "20px",
@@ -33,7 +33,7 @@ export const typographyDefault: Typography = {
   `,
   headingSmall: css`
     ${p => css`
-      color: ${p.theme.colors.primary};
+      color: ${p.theme.colors.onBackground};
       font-weight: ${FontWeights.bold};
       ${p.theme.responsiveStyle("font-size", {
         s: "16px",
@@ -43,7 +43,7 @@ export const typographyDefault: Typography = {
   `,
   bodyText: css`
     ${p => css`
-      color: ${p.theme.colors.primary};
+      color: ${p.theme.colors.onBackground};
       font-weight: ${FontWeights.normal};
       ${p.theme.responsiveStyle("font-size", {
         s: "12px",
@@ -53,7 +53,7 @@ export const typographyDefault: Typography = {
   `,
   buttonPrimary: css`
     ${p => css`
-      color: ${p.theme.colors.primary};
+      color: ${p.theme.colors.onPrimary};
       font-weight: ${FontWeights.bold};
       ${p.theme.responsiveStyle("font-size", {
         s: "12px",
@@ -63,7 +63,7 @@ export const typographyDefault: Typography = {
   `,
   buttonSecondary: css`
     ${p => css`
-      color: ${p.theme.colors.primary};
+      color: ${p.theme.colors.onSecondary};
       font-weight: ${FontWeights.bold};
       ${p.theme.responsiveStyle("font-size", {
         s: "12px",
@@ -73,7 +73,7 @@ export const typographyDefault: Typography = {
   `,
   buttonTertiary: css`
     ${p => css`
-      color: ${p.theme.colors.primary};
+      color: ${p.theme.colors.onBackground};
       font-weight: ${FontWeights.bold};
       ${p.theme.responsiveStyle("font-size", {
         s: "12px",

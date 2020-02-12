@@ -1,12 +1,11 @@
 import React from "react";
-import styled, { css } from "styled-components";
 import { withKnobs, boolean } from "@storybook/addon-knobs";
-
+import { action } from "@storybook/addon-actions";
 import { Button } from ".";
 import { DesignSystemProvider } from "..";
 
 export default {
-  title: "My Button",
+  title: "Button",
   decorators: [withKnobs],
 };
 
@@ -15,9 +14,7 @@ export const text = (): React.ReactElement => (
     <div style={{ margin: 16 }}>
       <Button
         disabled={boolean("Disabled", false)}
-        onPress={() => {
-          console.log("yo");
-        }}
+        onPress={action("disabled button clicki")}
         title="Hello Primary Button"
       />
     </div>
@@ -25,9 +22,7 @@ export const text = (): React.ReactElement => (
       <Button
         variant="secondary"
         disabled={boolean("Disabled", false)}
-        onPress={() => {
-          console.log("yo");
-        }}
+        onPress={action("disabled secondard button click")}
         title="Hello Secondary Button"
       />
     </div>
@@ -35,9 +30,7 @@ export const text = (): React.ReactElement => (
       <Button
         variant="tertiary"
         disabled={boolean("Disabled", false)}
-        onPress={() => {
-          console.log("yo");
-        }}
+        onPress={action("disabled tertiary button click")}
         title="Hello Tertiary Button"
       />
     </div>
@@ -47,9 +40,7 @@ export const text = (): React.ReactElement => (
 export const emoji = () => (
   <DesignSystemProvider>
     <Button
-      onPress={() => {
-        console.log("yo");
-      }}
+      onPress={action("emoji button click")}
       variant="primary"
       size="m"
       title="😀 😎 👍 💯"

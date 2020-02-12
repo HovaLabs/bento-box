@@ -11,29 +11,23 @@ export default {
 
 export const text = (): React.ReactElement => (
   <DesignSystemProvider>
-    <div style={{ margin: 16 }}>
-      <Button
-        disabled={boolean("Disabled", false)}
-        onPress={action("disabled button clicki")}
-        title="Hello Primary Button"
-      />
-    </div>
-    <div style={{ margin: 16 }}>
-      <Button
-        variant="secondary"
-        disabled={boolean("Disabled", false)}
-        onPress={action("disabled secondard button click")}
-        title="Hello Secondary Button"
-      />
-    </div>
-    <div style={{ margin: 16 }}>
-      <Button
-        variant="tertiary"
-        disabled={boolean("Disabled", false)}
-        onPress={action("disabled tertiary button click")}
-        title="Hello Tertiary Button"
-      />
-    </div>
+    <Button
+      disabled={boolean("Disabled", false)}
+      onPress={action("disabled button clicki")}
+      title="Hello Primary Button"
+    />
+    <Button
+      variant="secondary"
+      disabled={boolean("Disabled", false)}
+      onPress={action("disabled secondard button click")}
+      title="Hello Secondary Button"
+    />
+    <Button
+      variant="tertiary"
+      disabled={boolean("Disabled", false)}
+      onPress={action("disabled tertiary button click")}
+      title="Hello Tertiary Button"
+    />
   </DesignSystemProvider>
 );
 

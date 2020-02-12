@@ -15,7 +15,7 @@ export const Text = styled(TextRN)<TextProps>`
       : p.theme.typography.bodyText;
     return typography;
   }}
-  ${p => (p.color ? `color: ${p.theme.colors[p.color]};` : "")}
+  ${p => (p.color ? `color: ${p.theme.colors[p.color] || p.color};` : "")}
 `;
 
 const Foo = styled.div`

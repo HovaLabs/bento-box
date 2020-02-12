@@ -18,7 +18,27 @@ export const text = (): React.ReactElement => (
         onPress={() => {
           console.log("yo");
         }}
-        title="Hello Button"
+        title="Hello Primary Button"
+      />
+    </div>
+    <div style={{ margin: 16 }}>
+      <Button
+        variant="secondary"
+        disabled={boolean("Disabled", false)}
+        onPress={() => {
+          console.log("yo");
+        }}
+        title="Hello Secondary Button"
+      />
+    </div>
+    <div style={{ margin: 16 }}>
+      <Button
+        variant="tertiary"
+        disabled={boolean("Disabled", false)}
+        onPress={() => {
+          console.log("yo");
+        }}
+        title="Hello Tertiary Button"
       />
     </div>
   </DesignSystemProvider>

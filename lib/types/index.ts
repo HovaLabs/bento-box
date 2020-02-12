@@ -86,9 +86,7 @@ export interface Typography {
   headingMedium: FlattenInterpolation<ThemeProps<DefaultTheme>>;
   headingSmall: FlattenInterpolation<ThemeProps<DefaultTheme>>;
   bodyText: FlattenInterpolation<ThemeProps<DefaultTheme>>;
-  buttonPrimary: FlattenInterpolation<ThemeProps<DefaultTheme>>;
-  buttonSecondary: FlattenInterpolation<ThemeProps<DefaultTheme>>;
-  buttonTertiary: FlattenInterpolation<ThemeProps<DefaultTheme>>;
+  buttonText: FlattenInterpolation<ThemeProps<DefaultTheme>>;
 }
 
 export type ThemeContextValue = {

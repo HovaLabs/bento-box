@@ -51,29 +51,9 @@ export const typographyDefault: Typography = {
       })}
     `}
   `,
-  buttonPrimary: css`
+  buttonText: css`
     ${p => css`
       color: ${p.theme.colors.onPrimary};
-      font-weight: ${FontWeights.bold};
-      ${p.theme.responsiveStyle("font-size", {
-        s: "12px",
-        m: "16px",
-      })}
-    `}
-  `,
-  buttonSecondary: css`
-    ${p => css`
-      color: ${p.theme.colors.onSecondary};
-      font-weight: ${FontWeights.bold};
-      ${p.theme.responsiveStyle("font-size", {
-        s: "12px",
-        m: "16px",
-      })}
-    `}
-  `,
-  buttonTertiary: css`
-    ${p => css`
-      color: ${p.theme.colors.onBackground};
       font-weight: ${FontWeights.bold};
       ${p.theme.responsiveStyle("font-size", {
         s: "12px",

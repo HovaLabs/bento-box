@@ -110,6 +110,10 @@ export interface ButtonProps {
    */
   children?: React.ReactNode;
   /**
+   * used for styled components
+   */
+  className?: string;
+  /**
    * w3 "disabled" property
    */
   disabled?: boolean;

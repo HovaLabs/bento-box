@@ -9,6 +9,7 @@ import * as S from "./ButtonStyles";
 
 export const Button = ({
   disabled,
+  className,
   // href,
   variant,
   // size,
@@ -18,6 +19,7 @@ export const Button = ({
 }: ButtonProps): React.ReactElement => {
   return (
     <S.Button
+      className={className}
       variant={variant}
       disabled={disabled}
       onPress={onPress}

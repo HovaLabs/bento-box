@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Spinner } from "styled-icons/fa-solid/Spinner";
+import { Spinner } from "styled-icons/fa-solid";
 import { actions } from "@storybook/addon-actions";
 import { DesignSystemProvider } from "..";
 import * as Icons from "../Icons";

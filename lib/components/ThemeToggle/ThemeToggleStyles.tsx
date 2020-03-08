@@ -1,8 +1,6 @@
-import React from "react";
 import styled, { css } from "styled-components";
 import { TouchableOpacity } from "react-native";
-import { Moon } from "styled-icons/fa-solid/Moon";
-import { Sun } from "styled-icons/fa-solid/Sun";
+import { Moon, Sun } from "styled-icons/fa-solid";
 import { Icon, IconProps } from "../Icon";
 
 const CONTAINER_HEIGHT = 28;

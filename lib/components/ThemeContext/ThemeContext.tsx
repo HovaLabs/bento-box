@@ -77,7 +77,15 @@ export const ThemeContextContainer = ({
   );
 
   const setThemeByThemeKey = (themeKey: keyof Themes): void => {
-    setTheme(themes[themeKey]);
+    setTheme({
+      ...themes[themeKey],
+      breakpoint: getBreakpoint(
+        Dimensions.get("window").width,
+        defaultThemes[initialThemeKey].breakpoints
+      ) as keyof Breakpoints,
+      height: Dimensions.get("window").height,
+      width: Dimensions.get("window").width,
+    });
   };
 
   // Watch for Breakpoint updates

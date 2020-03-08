@@ -15,11 +15,13 @@ export interface Breakpoints {
 
 export interface Colors {
   onBackground: string;
-  onSurface: string;
+  onSurface1: string;
+  onSurface2: string;
   onPrimary: string;
   onSecondary: string;
   background: string;
-  surface: string;
+  surface1: string;
+  surface2: string;
   primary: string;
   secondary: string;
 }

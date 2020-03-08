@@ -4,14 +4,14 @@ import {
   NativeTouchEvent,
   TouchableOpacity,
 } from "react-native";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { IconBaseProps } from "react-icons";
 
 interface IconStyleProps extends IconBaseProps {
   hoverColor?: string;
 }
-type IconProps = {
-  IconComponent: (p: IconStyleProps) => JSX.Element | any; // A bit messy but the typing on built components is crazy
+export type IconProps = {
+  IconComponent: any; // A bit messy but the typing on built components is crazy
   onPress?: (e: NativeSyntheticEvent<NativeTouchEvent>) => void;
   children?: React.ReactNode;
   size?: string | number;
@@ -66,9 +66,14 @@ export const Icon = styled(IconWrapper)<IconProps>`
     fill: ${p => p.color || p.theme.colors.onBackground};
     stroke: ${p => p.color || p.theme.colors.onBackground};
   }
-  :hover * {
-    color: ${p => p.hoverColor || p.theme.colors.onBackground};
-    fill: ${p => p.hoverColor || p.theme.colors.onBackground};
-    stroke: ${p => p.hoverColor || p.theme.colors.onBackground};
-  }
+  ${p =>
+    p.hoverColor
+      ? css`
+          :hover * {
+            color: ${p.hoverColor || p.theme.colors.onBackground};
+            fill: ${p.hoverColor || p.theme.colors.onBackground};
+            stroke: ${p.hoverColor || p.theme.colors.onBackground};
+          }
+        `
+      : ""}
 `;

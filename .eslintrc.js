@@ -32,6 +32,7 @@ module.exports = {
     'react/no-unescaped-entities': 0,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'react/prop-types': 0,
     'import/prefer-default-export': 0,
     'react/jsx-props-no-spreading': 0,
     'import/no-cycle': 1,

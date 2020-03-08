@@ -3,13 +3,10 @@ import { ThemeProvider } from "styled-components";
 import { Themes } from "../../types";
 import { ThemeContext, ThemeContextContainer } from "../ThemeContext";
 
-export const DesignSystemProvider = ({
-  children,
-  themes,
-}: {
+export const DesignSystemProvider: React.FC<{
   children: any;
   themes?: Themes;
-}): any => (
+}> = ({ children, themes }) => (
   <ThemeContextContainer themes={themes}>
     <ThemeContext.Consumer>
       {({ theme }): React.ReactElement => (

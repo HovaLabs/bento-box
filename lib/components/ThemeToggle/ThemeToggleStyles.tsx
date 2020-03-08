@@ -3,14 +3,15 @@ import { TouchableOpacity } from "react-native";
 import { Moon, Sun } from "styled-icons/fa-solid";
 import { Icon, IconProps } from "../Icon";
 
-const CONTAINER_HEIGHT = 54;
-const BORDER_WIDTH = 4;
-const CONTAINER_WIDTH = 104;
+const CONTAINER_HEIGHT = 40;
+const BORDER_WIDTH = 3;
+const INNER_GAP = 2;
+const CONTAINER_WIDTH = 78;
 
 export const Container = styled(TouchableOpacity)`
   position: relative;
   background-color: transparent;
-  width: 104px;
+  width: ${CONTAINER_WIDTH}px;
   height: ${CONTAINER_HEIGHT}px;
   border-width: ${BORDER_WIDTH}px;
   border-color: ${p => p.theme.colors.onBackground};
@@ -23,15 +24,15 @@ interface DotProps {
 }
 export const LightIcon = styled(Icon).attrs(p => ({
   IconComponent: Sun,
-  size: CONTAINER_HEIGHT - BORDER_WIDTH * 3,
+  size: CONTAINER_HEIGHT - BORDER_WIDTH * 2 - INNER_GAP * 2,
   color: p.theme.colors.onBackground,
 }))<DotProps & IconProps>`
   position: absolute;
-  top: 2px;
+  top: ${INNER_GAP}px;
   ${p =>
     p.currentTheme === "lightTheme"
       ? css`
-          left: ${BORDER_WIDTH}px;
+          left: ${INNER_GAP}px;
           opacity: 1;
         `
       : css`
@@ -43,15 +44,15 @@ export const LightIcon = styled(Icon).attrs(p => ({
 
 export const DarkIcon = styled(Icon).attrs(p => ({
   IconComponent: Moon,
-  size: CONTAINER_HEIGHT - BORDER_WIDTH * 3,
+  size: CONTAINER_HEIGHT - BORDER_WIDTH * 2 - INNER_GAP * 2,
   color: p.theme.colors.onBackground,
 }))<DotProps & IconProps>`
   position: absolute;
-  top: 2px;
+  top: ${INNER_GAP}px;
   ${p =>
     p.currentTheme === "lightTheme"
       ? css`
-          left: ${BORDER_WIDTH}px;
+          left: ${INNER_GAP}px;
           opacity: 0;
         `
       : css`

@@ -6,6 +6,8 @@ import {
 import { TextProps as TextPropsRN, GestureResponderEvent } from "react-native";
 
 // START Theme typings
+
+type Foo = string;
 export interface Breakpoints {
   s?: number;
   m?: number;

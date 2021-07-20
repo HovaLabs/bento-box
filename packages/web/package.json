@@ -21,7 +21,7 @@
     "csstype": "^2.6.7",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-native": "^0.61",
+    "react-native": "^0.62",
     "react-native-web": "^0.11.7",
     "react-scripts": "^3.3.0",
     "typescript": "^3.7.3"
